@@ -3,10 +3,17 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/image'],
+  modules: ["nitro-cloudflare-dev", '@nuxt/image', '@nuxt/icon'],
   nitro: {
+    preset: "cloudflare_module",
+
     prerender: {
       autoSubfolderIndex: false
+    },
+
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
     }
   },
   vite: {
@@ -14,5 +21,5 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  css: ['~/assets/css/main.css'],
+  css: ['~/main.css'],
 })

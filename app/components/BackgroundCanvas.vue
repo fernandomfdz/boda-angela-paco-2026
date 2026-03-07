@@ -2,7 +2,7 @@
   <div class="fixed inset-0 overflow-hidden pointer-events-none bg-wedding-dark">
     <!-- Image layer -->
     <img 
-      src="~/assets/images/image.png" 
+      src="/images/image.png" 
       alt="Wedding Background" 
       class="inset-0 z-10 w-full h-full object-cover"
     />
