@@ -6,7 +6,7 @@
       <!-- Hero Section -->
       <section 
         ref="heroSection"
-        class="relative h-screen flex flex-col items-center justify-center px-4 pt-36 overflow-hidden"
+        class="relative h-screen flex flex-col items-center justify-center px-4 md:pt-36 overflow-hidden"
       >
         <div 
           ref="heroContent" 
