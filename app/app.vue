@@ -47,12 +47,14 @@
           
           <!-- CTA -->
           <a 
+            v-if="!alreadySubmitted"
             href="#rsvp" 
             class="glass-light px-8 py-4 rounded-full text-bold text-sm md:text-base tracking-[0.2em] uppercase transition-all duration-300 hover:bg-wedding-accent group flex items-center gap-3 drop-shadow-2xl"
           >
             Confirmar Asistencia
             <Icon name="lucide:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
+          <p v-if="alreadySubmitted" class="flex items-center gap-2 text-2xl"><Icon name="lucide:badge-check" class="text-green-600 text-2xl"></Icon>Ya te has registrado. ¡Gracias!</p>
         </div>
         
         <!-- Scroll Indicator -->
@@ -85,7 +87,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const heroSection = ref<HTMLElement | null>(null)
 const heroContent = ref<HTMLElement | null>(null)
-const scrollIndicator = ref<HTMLElement | null>(null)
+  const scrollIndicator = ref<HTMLElement | null>(null)
+  const alreadySubmitted = ref(false)
 
 // Target Date
 const targetDate = new Date('2026-08-30T18:00:00')
@@ -131,7 +134,16 @@ const scrollToHistory = () => {
 
 let ctx: gsap.Context
 
-onMounted(() => {
+  onMounted(() => {
+
+      // Check localStorage for previous submission
+  if (import.meta.client) {
+    const savedRsvp = localStorage.getItem('wedding_rsvp_submitted')
+    if (savedRsvp === 'true') {
+      alreadySubmitted.value = true;
+    }
+  }
+  
   updateCountdown()
   timerInterval = setInterval(updateCountdown, 1000)
 
