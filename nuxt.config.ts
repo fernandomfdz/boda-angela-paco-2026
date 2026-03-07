@@ -16,6 +16,9 @@ export default defineNuxtConfig({
       nodeCompat: true
     },
   },
+  runtimeConfig: {
+    googleScriptUrl: process.env.GOOGLE_SCRIPT_URL || '',
+  },
   vite: {
     plugins: [
       tailwindcss(),

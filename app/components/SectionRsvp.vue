@@ -7,7 +7,35 @@
         <p class="text-lg font-light opacity-80">Por favor, indícanos si podremos contar contigo en este día tan especial.</p>
       </div>
 
-      <form @submit.prevent="submitRsvp" class="space-y-8">
+      <!-- Mensaje de éxito si ya ha enviado el formulario -->
+      <div v-if="alreadySubmitted" class="text-left animate-fade-in bg-white/5 border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
+        <Icon name="lucide:check-circle-2" class="w-16 h-16 text-wedding-accent mx-auto block mb-6 opacity-90" />
+        <h3 class="text-2xl font-serif text-wedding-accent mb-4 text-center">¡Ya tenemos tus datos!</h3>
+        <p class="text-lg font-light opacity-80 mb-6 text-center">Muchas gracias por confirmar. Tenemos muchas ganas de celebrar este día tan especial contigo.</p>
+        
+        <div class="bg-black/20 p-6 rounded-xl border border-white/5 space-y-4">
+          <div>
+            <span class="opacity-60 uppercase tracking-wider text-xs block mb-1">Nombre</span>
+            <p class="font-light">{{ form.name }}</p>
+          </div>
+          <div>
+            <span class="opacity-60 uppercase tracking-wider text-xs block mb-1">Email / Teléfono</span>
+            <p class="font-light">{{ form.contact }}</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 border-t border-white/10 pt-4 mt-2">
+            <div>
+              <span class="opacity-60 uppercase tracking-wider text-xs block mb-1">Asistencia</span>
+              <p class="font-light">{{ form.attending ? 'Confirmada' : 'No asistiré' }}</p>
+            </div>
+            <div v-if="form.attending">
+              <span class="opacity-60 uppercase tracking-wider text-xs block mb-1">Acompañantes</span>
+              <p class="font-light">{{ form.adults }} ({{ form.children }} niños)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form v-else @submit.prevent="submitRsvp" class="space-y-8">
         
         <!-- Basic Info -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -56,10 +84,15 @@
           <textarea rows="3" v-model="form.message" class="w-full bg-white/5 border-b border-white/20 px-4 py-3 rounded-t-md outline-none focus:bg-white/10 focus:border-wedding-accent transition-all font-light resize-none" placeholder="Opcional..."></textarea>
         </div>
 
-        <button type="submit" class="w-full py-5 rounded-xl bg-wedding-accent text-wedding-dark font-medium text-lg tracking-[0.2em] uppercase hover:bg-[#E5C07B] transition-colors relative overflow-hidden group">
-          <span class="relative z-10 font-bold">Enviar Confirmación</span>
-          <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+        <button type="submit" :disabled="isSubmitting" class="w-full py-5 rounded-xl bg-wedding-accent text-wedding-dark font-medium text-lg tracking-[0.2em] uppercase hover:bg-[#E5C07B] transition-colors relative overflow-hidden group disabled:opacity-70 disabled:cursor-not-allowed">
+          <span class="relative z-10 font-bold">
+            <template v-if="isSubmitting">Enviando...</template>
+            <template v-else>Enviar Confirmación</template>
+          </span>
+          <div v-if="!isSubmitting" class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
         </button>
+        
+        <p v-if="isError" class="text-red-400 text-center mt-4 font-light">Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde o contáctanos directamente.</p>
 
       </form>
     </div>
@@ -88,10 +121,30 @@ const form = ref({
   message: ''
 })
 
+const isSubmitting = ref(false)
+const alreadySubmitted = ref(false)
+const isError = ref(false)
+
 const containerRef = ref<HTMLElement | null>(null)
 let ctx: gsap.Context
 
 onMounted(() => {
+  // Check localStorage for previous submission
+  if (import.meta.client) {
+    const savedRsvp = localStorage.getItem('wedding_rsvp_submitted')
+    if (savedRsvp === 'true') {
+      alreadySubmitted.value = true
+      const savedData = localStorage.getItem('wedding_rsvp_data')
+      if (savedData) {
+        try {
+          Object.assign(form.value, JSON.parse(savedData))
+        } catch (e) {
+          console.error('Error parsing saved RSVP data', e)
+        }
+      }
+    }
+  }
+
   gsap.registerPlugin(ScrollTrigger)
   
   ctx = gsap.context(() => {
@@ -114,10 +167,27 @@ onUnmounted(() => {
   if (ctx) ctx.revert()
 })
 
-const submitRsvp = () => {
-  // Console log for now, next step will implement API connection
-  console.log('Sending RSVP:', form.value)
-  alert('Formulario listo. Próximamente se conectará con SQLite.')
+const submitRsvp = async () => {
+  try {
+    isSubmitting.value = true
+    isError.value = false
+    
+    await $fetch('/api/rsvp', {
+      method: 'POST',
+      body: form.value
+    })
+    
+    alreadySubmitted.value = true
+    if (import.meta.client) {
+      localStorage.setItem('wedding_rsvp_submitted', 'true')
+      localStorage.setItem('wedding_rsvp_data', JSON.stringify(form.value))
+    }
+  } catch (error) {
+    console.error('Error submitting RSVP:', error)
+    isError.value = true
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
