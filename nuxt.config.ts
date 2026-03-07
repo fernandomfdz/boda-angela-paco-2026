@@ -5,16 +5,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["nitro-cloudflare-dev", '@nuxt/image', '@nuxt/icon'],
   nitro: {
-    preset: "cloudflare_module",
-
+    preset: "cloudflare_pages",
     prerender: {
       autoSubfolderIndex: false
     },
-
     cloudflare: {
-      deployConfig: true,
       nodeCompat: true
-    }
+    },
+    routeRules: {
+      "/**": { cors: true },
+    },
   },
   vite: {
     plugins: [
