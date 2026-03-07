@@ -67,7 +67,7 @@
       </section>
 
       <!-- Sections Backdrop (Obscures the canvas smoothly as we go down) -->
-      <div class="relative z-10 bg-wedding-dark/90 backdrop-blur-sm border-t border-white/5">
+      <div class="relative z-10 bg-wedding-dark/50 backdrop-blur-sm border-t border-white/5">
         <SectionHistory id="historia" />
         <SectionLocation id="ubicacion" />
         <SectionParty id="fiesta" />
