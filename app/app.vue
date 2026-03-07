@@ -48,7 +48,7 @@
           <!-- CTA -->
           <a 
             href="#rsvp" 
-            class="glass-light px-8 py-4 rounded-full text-sm md:text-base tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 hover:bg-white/20 hover:border-wedding-accent/50 group flex items-center gap-3 drop-shadow-2xl"
+            class="glass-light px-8 py-4 rounded-full text-bold text-sm md:text-base tracking-[0.2em] uppercase transition-all duration-300 hover:bg-wedding-accent group flex items-center gap-3 drop-shadow-2xl"
           >
             Confirmar Asistencia
             <Icon name="lucide:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -73,11 +73,6 @@
         <SectionParty id="fiesta" />
         <SectionPhotos id="fotos" />
         <SectionRsvp id="rsvp" />
-
-        <div class="w-full max-w-3xl text-center mx-auto px-4 relative z-10 rounded-[2.5rem] p-4 mb-12 ">
-          <p>Hecho con <Icon name="lucide:heart" class="w-4 h-4 text-red-500" /> por <a class="text-wedding-accent" target="blank_" href="https://www.instagram.com/fernandomfdz/">@fernandomfdz</a></p>
-          <p>© {{ (new Date()).getFullYear() }}</p>
-        </div>
       </div>
     </main>
   </div>

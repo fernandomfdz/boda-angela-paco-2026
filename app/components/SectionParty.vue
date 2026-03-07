@@ -34,7 +34,7 @@
 
         <!-- Playlist -->
         <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-6 group relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-r from-wedding-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-wedding-accent/5 to-transparent transition-opacity duration-500"></div>
           <div>
             <h3 class="text-2xl font-serif text-white mb-2 flex items-center gap-3 hover:text-wedding-accent transition-colors">
               <Icon name="lucide:music" class="w-6 h-6 text-wedding-accent" /> Playlist Colaborativa

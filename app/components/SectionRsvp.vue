@@ -1,5 +1,5 @@
 <template>
-  <section class="py-32 relative min-h-screen flex items-center justify-center -mt-20 z-20" id="rsvp">
+  <section class="py-32 pb-0 relative min-h-screen flex items-center justify-center -mt-20 z-20 -scroll-m-36" id="rsvp">
     <div ref="containerRef" class="w-full max-w-3xl mx-auto px-4 relative z-10 glass-dark rounded-[2.5rem] p-8 md:p-12 lg:p-16 opacity-0 translate-y-20">
       
       <div class="text-center mb-12">
@@ -64,6 +64,11 @@
       </form>
     </div>
   </section>
+
+        <div class="w-full max-w-3xl text-center mx-auto px-4 relative z-10 rounded-[2.5rem] p-4 mb-12 ">
+          <p>Hecho con <Icon name="lucide:heart" class="w-4 h-4 text-red-500" /> por <a class="text-wedding-accent" target="blank_" href="https://www.instagram.com/fernandomfdz/">@fernandomfdz</a></p>
+          <p>© {{ (new Date()).getFullYear() }}</p>
+        </div>
 </template>
 
 <script setup lang="ts">
