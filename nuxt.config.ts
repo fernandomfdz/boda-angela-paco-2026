@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    googleScriptUrl: process.env.GOOGLE_SCRIPT_URL || '',
+    googleScriptUrl: process.env.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwLmHCFhoegdnPaNYJQ5DKGiMweqB8ygwr9dScP3RUj_2g3f37lSjnPrXIofL0XnwLp/exec',
   },
   vite: {
     plugins: [
