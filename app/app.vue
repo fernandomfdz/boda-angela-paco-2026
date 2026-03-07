@@ -1,16 +1,16 @@
 <template>
   <div class="relative min-h-screen font-sans bg-wedding-dark text-wedding-light overflow-x-hidden">
-    <BackgroundCanvas />
     
     <main class="w-full relative min-h-screen">
       <!-- Hero Section -->
+      <BackgroundCanvas />
       <section 
         ref="heroSection"
-        class="relative h-screen flex flex-col items-center justify-center px-4 md:pt-36 overflow-hidden"
+        class="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
       >
         <div 
           ref="heroContent" 
-          class="text-center z-10 flex flex-col items-center max-w-4xl mx-auto w-full md:pt-20"
+          class="text-center z-10 flex flex-col items-center max-w-4xl mx-auto w-full"
         >
         <p class="text-xl md:text-2xl font-serif tracking-widest uppercase mb-4 text-wedding-light opacity-90 drop-shadow-xl">
             ¡Nos casamos!

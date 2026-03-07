@@ -1,14 +1,14 @@
 <template>
-  <div class="fixed inset-0 overflow-hidden pointer-events-none bg-wedding-dark">
+  <div class="fixed w-full h-screen inset-0 overflow-hidden pointer-events-none bg-wedding-dark">
     <!-- Image layer -->
     <img 
       src="/images/image.png" 
       alt="Wedding Background" 
-      class="inset-0 z-10 w-full h-full object-cover"
+      class="absolute top-0 z-10 w-full h-auto object-contain"
     />
     
     <!-- Canvas for fireworks and stars -->
-    <canvas ref="canvasRef" class="absolute z-9 inset-0 z-10 w-full h-full mix-blend-screen opacity-80 block"></canvas>
+    <canvas ref="canvasRef" class="absolute z-9 inset-0 z-10 w-full h-screen mix-blend-screen opacity-80 block"></canvas>
     
   </div>
 </template>
