@@ -67,12 +67,17 @@
       </section>
 
       <!-- Sections Backdrop (Obscures the canvas smoothly as we go down) -->
-      <div class="relative z-10 bg-wedding-dark/50 backdrop-blur-sm border-t border-white/5">
+      <div class="relative z-10 bg-wedding-dark/50 backdrop-blur-sm border-t border-wedding-accent/20">
         <SectionHistory id="historia" />
         <SectionLocation id="ubicacion" />
         <SectionParty id="fiesta" />
         <SectionPhotos id="fotos" />
         <SectionRsvp id="rsvp" />
+
+        <div class="w-full max-w-3xl text-center mx-auto px-4 relative z-10 rounded-[2.5rem] p-4 mb-12 ">
+          <p>Hecho con <Icon name="lucide:heart" class="w-4 h-4 text-red-500" /> por <a class="text-wedding-accent" target="blank_" href="https://www.instagram.com/fernandomfdz/">@fernandomfdz</a></p>
+          <p>© {{ (new Date()).getFullYear() }}</p>
+        </div>
       </div>
     </main>
   </div>

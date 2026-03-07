@@ -49,14 +49,6 @@
           </div>
         </div>
       </div>
-      
-      <!-- CTA Upload -->
-      <div class="mt-8 text-center relative z-20">
-        <a href="#" class="inline-flex items-center gap-3 px-8 py-4 glass-light rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-105 border-wedding-accent/30 text-wedding-accent">
-          <Icon name="lucide:camera" class="w-5 h-5" />
-          <span class="uppercase tracking-[0.2em] text-sm">Comparte tus fotos</span>
-        </a>
-      </div>
 
     </div>
   </section>
