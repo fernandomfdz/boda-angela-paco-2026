@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "build": "npx nuxi build --preset=cloudflare_pages",
-    "deploy": "npx wrangler --cwd dist pages deploy",
+    "deploy": "npm run build && npx wrangler pages deploy dist",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "npm run build && wrangler dev",
     "postinstall": "nuxt prepare",
-    "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {

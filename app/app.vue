@@ -10,7 +10,7 @@
       >
         <div 
           ref="heroContent" 
-          class="text-center z-10 flex flex-col items-center max-w-4xl mx-auto w-full pt-20"
+          class="text-center z-10 flex flex-col items-center max-w-4xl mx-auto w-full md:pt-20"
         >
         <p class="text-xl md:text-2xl font-serif tracking-widest uppercase mb-4 text-wedding-light opacity-90 drop-shadow-xl">
             ¡Nos casamos!
@@ -18,12 +18,12 @@
           <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif text-wedding-accent mb-4 tracking-wider" style="text-shadow: 0 0 40px rgba(0,0,0,0.8);">
             Ángela & Paco
           </h1>
-          <p class="text-xl md:text-2xl font-sans tracking-widest uppercase mb-16 text-wedding-light opacity-90 drop-shadow-xl">
+          <p class="text-xl md:text-2xl font-sans tracking-widest uppercase md:mb-16 mb-8 text-wedding-light opacity-90 drop-shadow-xl">
             {{ targetDate.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }) }}
           </p>
           
           <!-- Countdown -->
-          <div class="flex gap-4 md:gap-8 mb-16 text-center text-wedding-light drop-shadow-2xl">
+          <div class="flex gap-4 md:gap-8 mb-8 md:mb-16 text-center text-wedding-light drop-shadow-2xl">
             <div class="flex flex-col items-center w-20">
               <span class="text-4xl md:text-6xl font-serif">{{ timeRemaining.days }}</span>
               <span class="text-[10px] md:text-xs uppercase tracking-widest opacity-70 mt-2">Días</span>
@@ -58,7 +58,7 @@
         <!-- Scroll Indicator -->
         <div 
           ref="scrollIndicator"
-          class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-10 opacity-70 animate-bounce cursor-pointer drop-shadow-lg"
+          class="absolute bottom-10 mx-auto flex flex-col items-center z-10 opacity-70 animate-bounce cursor-pointer drop-shadow-lg"
           @click="scrollToHistory"
         >
           <span class="text-xs uppercase tracking-widest mb-2 opacity-80">Desliza</span>

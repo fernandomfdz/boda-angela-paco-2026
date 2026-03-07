@@ -30,6 +30,9 @@
               <span class="text-wedding-accent font-serif text-3xl italic">2018</span>
               <h3 class="text-2xl md:text-4xl font-serif mt-2 mb-4">Nos Conocimos</h3>
               <p class="opacity-80 leading-relaxed font-light text-lg">Una tarde de verano cualquiera, una mirada que lo cambió todo. Desde ese día supimos que nuestras vidas seguirían el mismo camino, casi sin darnos cuenta.</p>
+              <div class="block md:hidden mt-8 aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
+                 <Icon name="lucide:camera" class="w-12 h-12 opacity-20" />
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +54,9 @@
               <span class="text-wedding-accent font-serif text-3xl italic">2021</span>
               <h3 class="text-2xl md:text-4xl font-serif mt-2 mb-4">El Primer Viaje</h3>
               <p class="opacity-80 leading-relaxed font-light text-lg">Esa escapada a la nieve donde confirmamos que éramos el equipo perfecto. Risas, frío y muchas anécdotas inolvidables.</p>
+              <div class="block md:hidden mt-8 aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
+                 <Icon name="lucide:plane" class="w-12 h-12 opacity-20" />
+              </div>
             </div>
           </div>
         </div>
@@ -72,6 +78,9 @@
               <span class="text-wedding-accent font-serif text-3xl italic">2024</span>
               <h3 class="text-2xl md:text-4xl font-serif mt-2 mb-4">El "Sí, quiero"</h3>
               <p class="opacity-80 leading-relaxed font-light text-lg">En un rincón secreto frente al mar, la pregunta más importante encontró la respuesta que nos ha traído hasta este momento mágico.</p>
+              <div class="block md:hidden mt-8 aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
+                 <Icon name="lucide:heart" class="w-12 h-12 opacity-20" />
+              </div>
             </div>
           </div>
         </div>
