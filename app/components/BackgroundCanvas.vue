@@ -1,20 +1,19 @@
 <template>
-  <div class="fixed w-full h-screen inset-0 overflow-hidden pointer-events-none bg-wedding-dark">
-    <!-- Image layer -->
-    <img 
-      src="/images/image.png" 
-      alt="Wedding Background" 
-      class="absolute top-0 z-10 w-full h-auto object-contain"
-    />
-    
-    <!-- Canvas for fireworks and stars -->
-    <canvas ref="canvasRef" class="absolute z-9 inset-0 z-10 w-full h-screen mix-blend-screen opacity-80 block"></canvas>
-    
+  <div class="absolute inset-0 overflow-hidden pointer-events-none w-full h-full">
+    <!-- Canvas for fireworks only -->
+    <canvas ref="canvasRef" class="absolute inset-0 z-20 w-full h-screen mix-blend-screen opacity-80 block"></canvas>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    default: true
+  }
+})
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 let animationFrameId: number
@@ -23,7 +22,6 @@ let width = 0
 let height = 0
 const TWO_PI = Math.PI * 2
 
-// Colores más llamativos y variados
 const colors = [
   '#D4AF37', // Gold
   '#FFDF00', // Yellow
@@ -36,30 +34,6 @@ const colors = [
   '#FFB347', // Orange
   '#47B3FF'  // Light Blue
 ]
-
-class Star {
-  x: number
-  y: number
-  size: number
-  blinkOffset: number
-
-  constructor() {
-    this.x = Math.random() * window.innerWidth
-    this.y = Math.random() * window.innerHeight * 0.8 // Más estrellas arriba
-    this.size = Math.random() * 1.5 + 0.2
-    this.blinkOffset = Math.random() * 100
-  }
-
-  draw(ctx: CanvasRenderingContext2D, time: number) {
-    // Parpadeo suave
-    const alpha = 0.2 + 0.8 * Math.abs(Math.sin(time * 0.001 + this.blinkOffset))
-    ctx.globalAlpha = alpha
-    ctx.fillStyle = '#FFF5D1'
-    ctx.beginPath()
-    ctx.arc(this.x, this.y, this.size, 0, TWO_PI)
-    ctx.fill()
-  }
-}
 
 class Particle {
   x: number
@@ -141,7 +115,7 @@ class Firework {
     this.x = Math.random() * (width * 0.8) + width * 0.1
     this.y = height + 10
     this.targetX = this.x + (Math.random() - 0.5) * 200
-    this.targetY = Math.random() * (height * 0.4) + height * 0.1
+    this.targetY = Math.random() * (height * 0.33) // Explota en el primer tercio de la pantalla
     this.color = colors[Math.floor(Math.random() * colors.length)]
     this.exploded = false
     this.particles = []
@@ -194,7 +168,22 @@ class Firework {
     if (!this.exploded) {
       if (this.history.length < 2) return
       
-      ctx.globalAlpha = this.trailAlpha
+      let dynamicAlpha = 0
+      const firstThird = height * 0.33
+      const secondThird = height * 0.66
+
+      if (this.y > secondThird) {
+        // Invisible en el 3er tercio (abajo)
+        dynamicAlpha = 0 
+      } else if (this.y > firstThird) {
+        // Transición de 0 a 1 en el 2o tercio (medio)
+        dynamicAlpha = 1 - ((this.y - firstThird) / (secondThird - firstThird))
+      } else {
+        // Totalmente visible en el 1er tercio (arriba)
+        dynamicAlpha = 1
+      }
+      
+      ctx.globalAlpha = this.trailAlpha * dynamicAlpha
       ctx.beginPath()
       ctx.moveTo(this.history[0].x, this.history[0].y)
       for (let i = 1; i < this.history.length; i++) {
@@ -216,17 +205,8 @@ class Firework {
 }
 
 let fireworks: Firework[] = []
-let stars: Star[] = []
 
-const initStars = () => {
-  stars = []
-  const numStars = width < 768 ? 50 : 150
-  for (let i = 0; i < numStars; i++) {
-    stars.push(new Star())
-  }
-}
-
-const draw = (time: number) => {
+const draw = () => {
   const canvas = canvasRef.value
   if (!canvas) return
   const ctx = canvas.getContext('2d')
@@ -238,12 +218,8 @@ const draw = (time: number) => {
   
   ctx.globalCompositeOperation = 'lighter'
 
-  // Dibujar estrellas
-  for (const star of stars) {
-    star.draw(ctx, time)
-  }
-
-  if (Math.random() < 0.02 && fireworks.length < 5) {
+  // Generate fireworks sparingly
+  if (props.active && Math.random() < 0.02 && fireworks.length < 5) {
     fireworks.push(new Firework())
   }
 
@@ -273,9 +249,9 @@ const handleResize = () => {
   canvas.style.height = `${height}px`
   
   const ctx = canvas.getContext('2d')
-  if (ctx) ctx.scale(pixelRatio, pixelRatio)
-  
-  initStars()
+  if (ctx) {
+      ctx.scale(pixelRatio, pixelRatio)
+  }
 }
 
 onMounted(() => {
