@@ -212,7 +212,7 @@ onMounted(() => {
     const tl = gsap.timeline()
     
     // Slow sequential fade in
-      tl.to(heroStars.value, { opacity: 1, duration: 0, ease: "power2.inOut" })
+      tl.to(heroStars.value, { opacity: 1, duration: 1, ease: "power2.inOut" })
         .to(heroImage.value, { opacity: 1, duration: 2, ease: "power2.inOut" },"-=1" )
          // Start overlapping
         .to(elNames.value, { opacity: 1, y: 0, duration: 2, ease: "power2.out" })
