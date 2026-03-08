@@ -14,7 +14,7 @@
           <p class="text-wedding-accent/90 font-medium tracking-widest uppercase text-sm">18:00 hrs</p>
         </div>
 
-          <div ref="mapRef1" id="map" class="w-full opacity-0 translate-x-10 mb-10">
+          <div id="map" class="w-full mb-10">
             <div class="glass-dark rounded-2xl transform transition-transform duration-700">
               <div class="bg-gradient-to-br from-wedding-dark via-[rgba(20,20,20,1)] to-white/5 rounded-xl flex flex-col items-center justify-center relative overflow-hidden group">            
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.602702912803!2d-1.1412121871520193!3d37.98640017181559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381f6fc04c0bb%3A0xe59a8e96951c9832!2sParroquia%20de%20San%20Andr%C3%A9s%20y%20Santa%20Mar%C3%ADa%20de%20la%20Arrixaca!5e0!3m2!1ses!2ses!4v1772886964562!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -32,7 +32,7 @@
           </div>
           
             <!-- Map Graphic / Placeholder -->
-            <div ref="mapRef" id="map" class="w-full opacity-0 translate-x-10 mb-10">
+            <div id="map" class="w-full mb-10">
               <div class="glass-dark rounded-2xl transform transition-transform duration-700">
                 <div class="bg-gradient-to-br from-wedding-dark via-[rgba(20,20,20,1)] to-white/5 rounded-xl flex flex-col items-center justify-center relative overflow-hidden group">            
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.602702912803!2d-1.1412121871520193!3d37.98640017181559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381f6fc04c0bb%3A0xe59a8e96951c9832!2sParroquia%20de%20San%20Andr%C3%A9s%20y%20Santa%20Mar%C3%ADa%20de%20la%20Arrixaca!5e0!3m2!1ses!2ses!4v1772886964562!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -51,8 +51,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const textRef = ref<HTMLElement | null>(null)
-const mapRef = ref<HTMLElement | null>(null)
-const mapRef1 = ref<HTMLElement | null>(null)
 
 let ctx: gsap.Context
 
@@ -60,8 +58,8 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   
   ctx = gsap.context(() => {
-    if (textRef.value && mapRef.value && mapRef1.value) {
-      gsap.to([textRef.value, mapRef.value, mapRef1.value], {
+    if (textRef.value) {
+      gsap.to([textRef.value], {
         x: 0,
         opacity: 1,
         duration: 1.2,
