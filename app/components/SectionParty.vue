@@ -33,20 +33,20 @@
         </div>
 
         <!-- Playlist -->
-        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-3 flex flex-col items-center justify-between gap-6 group relative overflow-hidden bg-linear-to-r from-wedding-accent/15 to-transparent transition-opacity duration-500">
-          <div class="flex flex-col gap-4 items-center z-20">
-            <div class="z-10">
+        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-3 flex flex-col items-center justify-between gap-6 group relative overflow-hidden bg-linear-to-r from-wedding-accent/15 to-transparent">
+          <div class="flex flex-col gap-4 items-center">
+            <div>
               <h3 class="text-2xl font-serif mb-2 flex items-center gap-3 hover:text-wedding-accent transition-colors">
                 <Icon name="lucide:music" class="w-6 h-6 text-wedding-accent" /> Playlist Colaborativa
               </h3>
               <p class="opacity-70">Añade esas canciones que no pueden faltar en la fiesta.</p>
             </div>
-            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=PADGy_NKT_2rtTZHGlXKYQ" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300 z-10">
+            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=PADGy_NKT_2rtTZHGlXKYQ" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300">
               Añadir Canciones
             </a>
           </div>
 
-          <div class=" rounded-2xl overflow-hidden w-full col-span-3 mx-auto z-20">
+          <div class="rounded-2xl overflow-hidden w-full col-span-3 mx-auto">
             <iframe class="w-full" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4j6WpzfBR821UqSIddbXZc?utm_source=generator&theme=0" width="100%" height="650" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </div>
         </div>
