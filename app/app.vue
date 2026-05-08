@@ -3,7 +3,7 @@
     <ThemeToggle />
     <EnvelopeReopenButton />
     <ClientOnly>
-      <EnvelopeSplash v-if="envelope.isOpen.value" :guest="guest" @dismiss="envelope.dismiss" />
+      <EnvelopeSplash v-if="envelope.isOpen.value && guest" :guest="guest" @dismiss="envelope.dismiss" />
     </ClientOnly>
     <NuxtPage />
   </div>
