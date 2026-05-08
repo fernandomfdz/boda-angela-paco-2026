@@ -60,7 +60,7 @@ const galleryFiles = (config.public.gallery as string[]) ?? []
 
 const photos = computed(() =>
   galleryFiles.map((file, i) => ({
-    src: `/gallery/${file}`,
+    src: `/gallery/${encodeURIComponent(file)}`,
     alt: `Foto ${i + 1} de Ángela y Paco`,
   })),
 )
