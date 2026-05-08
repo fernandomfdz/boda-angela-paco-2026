@@ -1,0 +1,29 @@
+{
+  "familia-rodriguez": {
+    "slug": "familia-rodriguez",
+    "displayName": "Familia Rodríguez",
+    "names": ["Juan", "María", "Lucía"],
+    "greeting": "Queridos Juan, María y Lucía",
+    "message": "Os queremos mucho y nos encantaría compartir este día tan especial con vosotros. Vuestra presencia es nuestro mejor regalo.\n\nCon todo el cariño,\nÁngela y Paco",
+    "allowedGuests": 3,
+    "tableNumber": null
+  },
+  "los-perez": {
+    "slug": "los-perez",
+    "displayName": "Los Pérez",
+    "names": ["Carlos", "Ana"],
+    "greeting": "Queridos Carlos y Ana",
+    "message": "Sois parte fundamental de nuestra historia y no podemos imaginar este día sin vosotros. Estamos deseando celebrarlo a vuestro lado.\n\nCon mucho cariño,\nÁngela y Paco",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "fernando-y-cristina": {
+    "slug": "fernando-y-cristina",
+    "displayName": "Fernando y Cristina",
+    "names": ["Fernando", "Cristina"],
+    "greeting": "Queridos Fernando y Cristina",
+    "message": "Nos hace muchísima ilusión que compartáis con nosotros este día tan especial. ¡Será una fiesta inolvidable y queremos que estéis ahí para celebrarlo!\n\nUn abrazo enorme,\nÁngela y Paco",
+    "allowedGuests": 2,
+    "tableNumber": null
+  }
+}

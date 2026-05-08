@@ -1,12 +1,12 @@
 <template>
   <canvas
     ref="canvasRef"
-    class="absolute z-10 inset-0 w-full h-screen mix-blend-screen opacity-80 block"
+    class="absolute z-10 inset-0 w-full h-screen mix-blend-screen opacity-80 hidden dark:block"
   ></canvas>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 let animationFrameId: number
@@ -15,6 +15,27 @@ let width = 0
 let height = 0
 let lastWidth = 0 // Used to track width changes to fix mobile scroll jitter
 const TWO_PI = Math.PI * 2
+
+// Colores reactivos al tema (leídos de CSS vars)
+let starColor = '#FFF5D1'
+let trailColor = 'rgba(255, 255, 255, 1)'
+let trailFadeColor = 'rgba(255, 255, 255, 0)'
+
+const readThemeColors = () => {
+  if (typeof window === 'undefined') return
+  const styles = getComputedStyle(document.documentElement)
+  const s = styles.getPropertyValue('--c-canvas-star').trim()
+  const t = styles.getPropertyValue('--c-canvas-trail').trim()
+  const tf = styles.getPropertyValue('--c-canvas-trail-fade').trim()
+  if (s) starColor = s
+  if (t) trailColor = t
+  if (tf) trailFadeColor = tf
+}
+
+const { resolved } = useTheme()
+watch(resolved, () => {
+  readThemeColors()
+})
 
 class Star {
   x: number
@@ -33,7 +54,7 @@ class Star {
     // Parpadeo suave
     const alpha = 0.2 + 0.8 * Math.abs(Math.sin(time * 0.001 + this.blinkOffset))
     ctx.globalAlpha = alpha
-    ctx.fillStyle = '#FFF5D1'
+    ctx.fillStyle = starColor
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.size, 0, TWO_PI)
     ctx.fill()
@@ -77,8 +98,8 @@ class ShootingStar {
     
     // Create subtle gradient for shooting star trail
     const gradient = ctx.createLinearGradient(this.x, this.y, this.x - this.vx * this.length * 0.1, this.y - this.vy * this.length * 0.1)
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)')
-    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
+    gradient.addColorStop(0, trailColor)
+    gradient.addColorStop(1, trailFadeColor)
     
     ctx.strokeStyle = gradient
     ctx.lineWidth = this.thickness

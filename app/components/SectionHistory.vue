@@ -18,7 +18,7 @@
             <div class="image-wrapper opacity-0 translate-y-10 w-full max-w-sm rounded-xl overflow-hidden glass-dark p-2 rotate-[2deg] transition-transform duration-500 hover:rotate-0 hover:scale-105">
               <!-- Placeholder for an image -->
               <div class="aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
-                 <Icon name="lucide:camera" class="w-12 h-12 opacity-20" />
+                 <NuxtImg src="/images/inicio.jpeg" alt="Paco y Ángela" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
               <h3 class="text-2xl md:text-4xl font-serif mt-2 mb-4">Nos Conocimos</h3>
               <p class="opacity-80 leading-relaxed font-light text-lg">Una tarde de verano cualquiera, una mirada que lo cambió todo. Desde ese día supimos que nuestras vidas seguirían el mismo camino, casi sin darnos cuenta.</p>
               <div class="block md:hidden mt-8 aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
-                 <Icon name="lucide:camera" class="w-12 h-12 opacity-20" />
+                 <NuxtImg src="/images/inicio.jpeg" alt="Paco y Ángela" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
           <div class="hidden md:flex w-5/12 justify-start pl-12">
             <div class="image-wrapper opacity-0 translate-y-10 w-full max-w-sm rounded-xl overflow-hidden glass-dark p-2 rotate-[-3deg] transition-transform duration-500 hover:rotate-0 hover:scale-105">
               <div class="aspect-square bg-gradient-to-tl from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
-                <Icon name="lucide:plane" class="w-12 h-12 opacity-20" />
+                <NuxtImg src="/images/evento.jpeg" alt="Paco y Ángela" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@
               <h3 class="text-2xl md:text-4xl font-serif mt-2 mb-4">El Primer Viaje</h3>
               <p class="opacity-80 leading-relaxed font-light text-lg">Esa escapada a la nieve donde confirmamos que éramos el equipo perfecto. Risas, frío y muchas anécdotas inolvidables.</p>
               <div class="block md:hidden mt-8 aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
-                 <Icon name="lucide:plane" class="w-12 h-12 opacity-20" />
+                 <NuxtImg src="/images/evento.jpeg" alt="Paco y Ángela" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -65,8 +65,8 @@
         <div class="milestone-item relative flex flex-col md:flex-row justify-between items-center group">
           <div class="hidden md:flex w-5/12 justify-end pr-12">
             <div class="image-wrapper opacity-0 translate-y-10 w-full max-w-sm rounded-xl overflow-hidden glass-dark p-2 rotate-[1deg] transition-transform duration-500 hover:rotate-0 hover:scale-105">
-              <div class="aspect-[4/3] bg-gradient-to-br from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
-                <Icon name="lucide:heart" class="w-12 h-12 opacity-20" />
+              <div class="aspect-square bg-gradient-to-br from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
+                <NuxtImg src="/images/anillo-mar.jpeg" alt="Paco y Ángela" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
               <h3 class="text-2xl md:text-4xl font-serif mt-2 mb-4">El "Sí, quiero"</h3>
               <p class="opacity-80 leading-relaxed font-light text-lg">En un rincón secreto frente al mar, la pregunta más importante encontró la respuesta que nos ha traído hasta este momento mágico.</p>
               <div class="block md:hidden mt-8 aspect-square bg-gradient-to-tr from-wedding-dark to-white/10 rounded-lg w-full flex items-center justify-center">
-                 <Icon name="lucide:heart" class="w-12 h-12 opacity-20" />
+                 <NuxtImg src="/images/anillo-mar.jpeg" alt="Paco y Ángela" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>

@@ -26,24 +26,40 @@
       ref="heroContent" 
       class="text-center z-10 flex flex-col items-center max-w-4xl mx-auto w-full"
     >
-      <p 
+      <p
         ref="elTitle"
         class="text-xl md:text-2xl font-serif tracking-widest uppercase mb-4 text-wedding-light opacity-0 drop-shadow-xl"
       >
         ¡Nos casamos!
       </p>
+    
+
+      <p
+        v-if="guest"
+        ref="elGuest"
+        class="text-base font-serif italic tracking-wider mb-3 text-wedding-accent opacity-0 drop-shadow-xl"
+      >
+        Invitación para {{ guest.displayName }}
+      </p>
       <h1 
         ref="elNames"
         class="flex gap-y-2 gap-x-6 flex-wrap items-baseline justify-center text-6xl md:text-8xl lg:text-9xl font-serif break-keep text-wedding-accent mb-4 tracking-wider opacity-0" 
-        style="text-shadow: 0 0 40px rgba(0,0,0,0.8);"
       >
       <span class="w-full md:w-fit">Ángela</span>
       <span class="w-full md:w-fit leading-6 mt-3 md:mt-0 text-3xl md:text-6xl">&</span>
       <span class="w-full md:w-fit leading-9">Paco</span>
       </h1>
+      
+      <div ref="elPhoto" class="aspect-[4/3] size-64 md:size-80 rounded-full overflow-hidden mt-4 md:mt-8 opacity-0">
+        <NuxtImg 
+          src="/images/evento.jpeg" 
+          alt="Wedding Background" 
+          class="w-full h-full object-cover "
+        />
+      </div>
       <p 
         ref="elDate"
-        class="text-xl md:text-2xl font-sans tracking-widest uppercase md:mb-16 mb-8 text-wedding-light opacity-0 drop-shadow-xl"
+        class="text-xl md:text-2xl font-sans tracking-widest uppercase text-wedding-light opacity-0 drop-shadow-xl mt-4 md:mt-8"
       >
         {{ targetDate.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }) }}
       </p>
@@ -51,7 +67,7 @@
       <!-- Countdown -->
       <div 
         ref="elCountdown"
-        class="opacity-0 drop-shadow-2xl"
+        class="opacity-0 drop-shadow-2xl mt-8"
       >
         <ClientOnly>
           <template #default>
@@ -105,9 +121,9 @@
       
       <!-- CTA -->
       <div ref="elButton" class="opacity-0">
-        <a 
-          v-if="!alreadySubmitted"
-          href="#rsvp" 
+        <a
+          v-if="guest && !alreadySubmitted"
+          href="#rsvp"
           class="glass-light px-8 py-4 rounded-full bg-wedding-dark/30 text-bold text-sm md:text-base border-2 border-wedding-light/30 tracking-[0.2em] uppercase transition-all duration-300 hover:bg-wedding-dark hover:border-wedding-accent group flex items-center gap-3 drop-shadow-2xl"
         >
           Confirmar Asistencia
@@ -135,6 +151,11 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import type { Guest } from '~/types/guest'
+
+const props = defineProps<{
+  guest?: Guest | null
+}>()
 
 const heroSection = ref<HTMLElement | null>(null)
 const heroContent = ref<HTMLElement | null>(null)
@@ -145,16 +166,18 @@ const heroImage = ref<HTMLElement | null>(null)
 const heroStars = ref<HTMLElement | null>(null)
 const elNames = ref<HTMLElement | null>(null)
 const elTitle = ref<HTMLElement | null>(null)
+const elGuest = ref<HTMLElement | null>(null)
 const elDate = ref<HTMLElement | null>(null)
 const elCountdown = ref<HTMLElement | null>(null)
 const elButton = ref<HTMLElement | null>(null)
+const elPhoto = ref<HTMLElement | null>(null)
 
 const alreadySubmitted = ref(false)
 const showFireworks = ref(false)
 
 // Target Date (Constructed safely to avoid iOS Safari NaN parse issues)
 // 30 de Agosto de 2026, 18:00:00 -> Month is 0-indexed (7 = August)
-const targetDate = new Date(2026, 7, 30, 18, 0, 0)
+const targetDate = new Date(2026, 7, 29, 18, 0, 0)
 const targetTime = targetDate.getTime()
 
 // Ensure reactive "now" works perfectly after hydration
@@ -190,11 +213,11 @@ const scrollToHistory = () => {
 let ctx: gsap.Context
 
 onMounted(() => {
-  // Check localStorage for previous submission (only on client)
-  if (import.meta.client) {
-    const savedRsvp = localStorage.getItem('wedding_rsvp_submitted')
-    if (savedRsvp === 'true') {
-      alreadySubmitted.value = true;
+  // Check localStorage for previous submission (per-slug, solo si hay guest)
+  if (import.meta.client && props.guest?.slug) {
+    const key = `wedding_rsvp_submitted_${props.guest.slug}`
+    if (localStorage.getItem(key) === 'true') {
+      alreadySubmitted.value = true
     }
   }
   
@@ -216,9 +239,13 @@ onMounted(() => {
         .to(heroImage.value, { opacity: 1, duration: 2, ease: "power2.inOut" },"-=1" )
          // Start overlapping
         .to(elNames.value, { opacity: 1, y: 0, duration: 2, ease: "power2.out" })
+        .to(elPhoto.value, { opacity: 1, y: 0, duration: 2, ease: "power2.out" }, "-=0.5")
         .to(elDate.value, { opacity: 1, y: 0, duration: 2, ease: "power2.out" }, "-=0.5")
         .to(elTitle.value, { opacity: 1, y: 0, duration: 2, ease: "power2.out" }, "-=0.5")
-        .to(elCountdown.value, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=1")
+      if (elGuest.value) {
+        tl.to(elGuest.value, { opacity: 1, y: 0, duration: 1.4, ease: "power2.out" }, "-=1.2")
+      }
+      tl.to(elCountdown.value, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=1")
         .to(elButton.value, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=1")
         .to(scrollIndicator.value, { opacity: 0.7, duration: 1 }, "-=1")
       .call(() => { showFireworks.value = true })

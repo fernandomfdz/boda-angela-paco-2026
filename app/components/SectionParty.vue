@@ -21,30 +21,37 @@
         <!-- Transporte -->
         <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 flex flex-col justify-center group relative overflow-hidden">
           <Icon name="lucide:bus" class="w-8 h-8 text-wedding-accent mb-4" />
-          <h3 class="text-xl font-serif text-white mb-2">Transporte</h3>
+          <h3 class="text-xl font-serif mb-2">Transporte</h3>
           <p class="opacity-70 text-sm">Habrá servicio de autobuses desde Valencia centro (ida y vuelta).</p>
         </div>
 
         <!-- Alojamiento -->
         <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 flex flex-col justify-center group relative overflow-hidden">
           <Icon name="lucide:hotel" class="w-8 h-8 text-wedding-accent mb-4" />
-          <h3 class="text-xl font-serif text-white mb-2">Alojamiento</h3>
+          <h3 class="text-xl font-serif mb-2">Alojamiento</h3>
           <p class="opacity-70 text-sm">Hoteles recomendados en la web con descuento para invitados.</p>
         </div>
 
         <!-- Playlist -->
-        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-6 group relative overflow-hidden">
-          <div class="absolute inset-0 bg-linear-to-r from-wedding-accent/15 to-transparent transition-opacity duration-500"></div>
-          <div>
-            <h3 class="text-2xl font-serif text-white mb-2 flex items-center gap-3 hover:text-wedding-accent transition-colors">
-              <Icon name="lucide:music" class="w-6 h-6 text-wedding-accent" /> Playlist Colaborativa
-            </h3>
-            <p class="opacity-70">Añade esas canciones que no pueden faltar en la fiesta.</p>
+        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-3 flex flex-col items-center justify-between gap-6 group relative overflow-hidden">
+          <div class="flex flex-col gap-4 items-center">
+            <div class="absolute z-0 inset-0 bg-linear-to-r from-wedding-accent/15 to-transparent transition-opacity duration-500"></div>
+            <div class="z-10">
+              <h3 class="text-2xl font-serif mb-2 flex items-center gap-3 hover:text-wedding-accent transition-colors">
+                <Icon name="lucide:music" class="w-6 h-6 text-wedding-accent" /> Playlist Colaborativa
+              </h3>
+              <p class="opacity-70">Añade esas canciones que no pueden faltar en la fiesta.</p>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=PADGy_NKT_2rtTZHGlXKYQ" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300 z-10">
+              Añadir Canciones
+            </a>
           </div>
-          <a href="#" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300">
-            Añadir Canciones
-          </a>
+
+          <div class=" rounded-2xl overflow-hidden w-full col-span-3 mx-auto z-10">
+            <iframe class="w-full" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4j6WpzfBR821UqSIddbXZc?utm_source=generator&theme=0" width="100%" height="650" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
         </div>
+
 
       </div>
     </div>

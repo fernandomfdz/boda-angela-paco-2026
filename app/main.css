@@ -1,32 +1,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
+/* Variante dark vinculada a data-theme="dark" del <html> en lugar de prefers-color-scheme */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
-  --color-wedding-dark: #1e1824;
-  --color-wedding-light: #FDFBF7;
-  --color-wedding-accent: #D4AF37; /* Elegante champagne dorado */
-  
+  /* Tokens semánticos referenciando vars dinámicas */
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-text: var(--c-text);
+  --color-secondary: var(--c-secondary);
+  --color-border: var(--c-border);
+
+  /* Aliases retrocompatibles para clases existentes */
+  --color-wedding-dark: var(--c-bg);
+  --color-wedding-light: var(--c-text);
+  --color-wedding-accent: var(--c-accent);
+
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+:root,
+[data-theme="dark"] {
+  --c-bg: #1e1824;
+  --c-surface: #2a2230;
+  --c-text: #FDFBF7;
+  --c-accent: #D4AF37;
+  --c-secondary: #8a8294;
+  --c-border: rgba(255, 255, 255, 0.10);
+  --c-glass-bg: rgba(30, 24, 36, 0.60);
+  --c-glass-bg-light: rgba(255, 255, 255, 0.10);
+  --c-glass-border: rgba(255, 255, 255, 0.10);
+  --c-glass-border-light: rgba(255, 255, 255, 0.20);
+  --c-canvas-star: #FFF5D1;
+  --c-canvas-trail: rgba(255, 255, 255, 1);
+  --c-canvas-trail-fade: rgba(255, 255, 255, 0);
+
+  /* Tokens de formulario */
+  --c-input-bg: rgba(255, 255, 255, 0.05);
+  --c-input-bg-focus: rgba(255, 255, 255, 0.10);
+  --c-input-border: rgba(255, 255, 255, 0.20);
+  --c-card-bg: rgba(0, 0, 0, 0.20);
+  --c-card-border: rgba(255, 255, 255, 0.06);
+  --c-card-border-hover: rgba(255, 255, 255, 0.18);
+  --c-muted: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="light"] {
+  --c-bg: #FDFBF7;
+  --c-surface: #FFFFFF;
+  --c-text: #4A5D4A;
+  --c-accent: #D4AF37;
+  --c-secondary: #8FA68E;
+  --c-border: rgba(74, 93, 74, 0.18);
+  --c-glass-bg: rgba(255, 255, 255, 0.65);
+  --c-glass-bg-light: rgba(74, 93, 74, 0.06);
+  --c-glass-border: rgba(74, 93, 74, 0.15);
+  --c-glass-border-light: rgba(74, 93, 74, 0.20);
+  --c-canvas-star: #4A5D4A;
+  --c-canvas-trail: rgba(74, 93, 74, 1);
+  --c-canvas-trail-fade: rgba(74, 93, 74, 0);
+
+  /* Tokens de formulario */
+  --c-input-bg: rgba(74, 93, 74, 0.06);
+  --c-input-bg-focus: rgba(74, 93, 74, 0.12);
+  --c-input-border: rgba(74, 93, 74, 0.28);
+  --c-card-bg: rgba(74, 93, 74, 0.04);
+  --c-card-border: rgba(74, 93, 74, 0.14);
+  --c-card-border-hover: rgba(74, 93, 74, 0.28);
+  --c-muted: rgba(74, 93, 74, 0.65);
+}
+
 @layer base {
   html, body {
-    @apply bg-wedding-dark text-wedding-light font-sans antialiased;
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    @apply font-sans antialiased;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    transition: background-color 400ms ease, color 400ms ease;
   }
 
   h1, h2, h3, h4, h5, h6, .font-display {
     @apply font-serif font-medium tracking-wide;
   }
-  
-  /* Utilities nativas para glassmorphism en background dark */
+
+  /* Glass adaptable a tema */
   .glass-dark {
-    @apply bg-wedding-dark/60 backdrop-blur-md border border-white/10;
+    background-color: var(--c-glass-bg);
+    border: 1px solid var(--c-glass-border);
+    @apply backdrop-blur-md;
   }
-  
+
   .glass-light {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    background-color: var(--c-glass-bg-light);
+    border: 1px solid var(--c-glass-border-light);
+    @apply backdrop-blur-md;
   }
 }
