@@ -1,7 +1,7 @@
 <template>
   <div class="absolute inset-0 overflow-hidden pointer-events-none w-full h-full">
     <!-- Canvas for fireworks only -->
-    <canvas ref="canvasRef" class="absolute inset-0 z-20 w-full h-screen mix-blend-screen opacity-80 hidden dark:block"></canvas>
+    <canvas ref="canvasRef" class="absolute inset-0 z-20 w-full h-screen mix-blend-screen opacity-80"></canvas>
   </div>
 </template>
 

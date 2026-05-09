@@ -53,7 +53,7 @@
         <button
           ref="sealRef"
           type="button"
-          class="seal-btn pointer-events-auto w-28 h-28 md:w-36 md:h-36 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--c-accent)] rounded-full"
+          class="seal-btn pointer-events-auto w-16 h-16 md:w-36 md:h-36 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--c-accent)] rounded-full"
           style="aspect-ratio: 1 / 1; flex-shrink: 0; background: transparent; border: 0; padding: 0;"
           :disabled="stage !== 'closed'"
           :aria-label="`Abrir invitación para ${recipientName}`"
@@ -168,17 +168,17 @@
       <div
         ref="addressRef"
         class="absolute left-0 right-0 text-center px-6 pointer-events-none select-none"
-        style="bottom: 18%;"
+        style="bottom: 12%;"
       >
         <p
           id="envelope-title"
-          class="font-serif italic text-xs md:text-sm"
+          class="font-serif italic text-md"
           :style="{ color: 'var(--c-secondary)' }"
         >
           Invitación para
         </p>
         <p
-          class="font-serif tracking-wide text-lg md:text-2xl mt-1"
+          class="font-serif tracking-wide text-2xl"
           :style="{ color: 'var(--c-text)' }"
         >
           {{ recipientName }}

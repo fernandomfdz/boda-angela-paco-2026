@@ -1,7 +1,7 @@
 <template>
   <section 
     ref="heroSection"
-    class="relative min-h-screen h-dvh flex flex-col items-center justify-center px-4 overflow-hidden"
+    class="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
   >
     <!-- Background layers -->
      <div ref="heroImage" class="opacity-0 fixed top-0 z-1 w-full h-auto">
@@ -32,21 +32,12 @@
       >
         ¡Nos casamos!
       </p>
-    
-
-      <p
-        v-if="guest"
-        ref="elGuest"
-        class="text-base font-serif italic tracking-wider mb-3 text-wedding-accent opacity-0 drop-shadow-xl"
-      >
-        Invitación para {{ guest.displayName }}
-      </p>
+  
       <h1 
         ref="elNames"
         class="flex gap-y-2 gap-x-6 flex-wrap items-baseline justify-center text-6xl md:text-8xl lg:text-9xl font-serif break-keep text-wedding-accent mb-4 tracking-wider opacity-0" 
       >
-      <span class="w-full md:w-fit">Ángela</span>
-      <span class="w-full md:w-fit leading-6 mt-3 md:mt-0 text-3xl md:text-6xl">&</span>
+      <span class="w-full md:w-fit">Ángela &</span>
       <span class="w-full md:w-fit leading-9">Paco</span>
       </h1>
       
@@ -134,28 +125,22 @@
         </p>
       </div>
     </div>
-    
-    <!-- Scroll Indicator -->
-    <div 
-      ref="scrollIndicator"
-      class="absolute bottom-10 mx-auto flex flex-col items-center z-10 opacity-0 animate-bounce cursor-pointer drop-shadow-lg"
-      @click="scrollToHistory"
-    >
-      <span class="text-xs uppercase tracking-widest mb-2 opacity-80">Desliza</span>
-      <Icon name="lucide:chevron-down" class="w-6 h-6" />
-    </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { Guest } from '~/types/guest'
+import { useEnvelope } from '~/composables/useEnvelope'
 
 const props = defineProps<{
   guest?: Guest | null
 }>()
+
+const envelope = useEnvelope()
+let unwatchEnvelope: (() => void) | null = null
 
 const heroSection = ref<HTMLElement | null>(null)
 const heroContent = ref<HTMLElement | null>(null)
@@ -231,10 +216,11 @@ onMounted(() => {
 
   ctx = gsap.context(() => {
     
-    // 1. Initial Load Sequence
-    const tl = gsap.timeline()
-    
-    // Slow sequential fade in
+    const playAnimation = () => {
+      // 1. Initial Load Sequence
+      const tl = gsap.timeline()
+      
+      // Slow sequential fade in
       tl.to(heroStars.value, { opacity: 1, duration: 1, ease: "power2.inOut" })
         .to(heroImage.value, { opacity: 1, duration: 2, ease: "power2.inOut" },"-=1" )
          // Start overlapping
@@ -248,12 +234,28 @@ onMounted(() => {
       tl.to(elCountdown.value, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=1")
         .to(elButton.value, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=1")
         .to(scrollIndicator.value, { opacity: 0.7, duration: 1 }, "-=1")
-      .call(() => { showFireworks.value = true })
+        .call(() => { showFireworks.value = true })
+    }
+
+    if (props.guest && envelope.isOpen.value) {
+      unwatchEnvelope = watch(() => envelope.isOpen.value, (isOpen) => {
+        if (!isOpen) {
+          playAnimation()
+          if (unwatchEnvelope) {
+            unwatchEnvelope()
+            unwatchEnvelope = null
+          }
+        }
+      })
+    } else {
+      playAnimation()
+    }
   })
 })
 
 onUnmounted(() => {
   if (timer) clearInterval(timer)
   if (ctx) ctx.revert()
+  if (unwatchEnvelope) unwatchEnvelope()
 })
 </script>
