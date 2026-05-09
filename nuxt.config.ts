@@ -42,7 +42,7 @@ export default defineNuxtConfig({
       script: [
         {
           // Aplica el tema antes del primer paint para evitar FOUC
-          innerHTML: `(function(){try{var s=localStorage.getItem('wedding_theme');var m=(s==='dark'||s==='light')?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',m);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
+          innerHTML: `(function(){try{var s=localStorage.getItem('wedding_theme');var m=(s==='dark'||s==='light')?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',m);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
           tagPosition: 'head',
         },
       ],

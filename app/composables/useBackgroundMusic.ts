@@ -2,11 +2,13 @@ import { ref } from 'vue'
 
 const isPlaying = ref(false)
 const hasEnded = ref(false)
+const volume = ref(0.015)
 let audio: HTMLAudioElement | null = null
 
 export const useBackgroundMusic = () => {
   if (import.meta.client && !audio) {
     audio = new Audio('/intro.mp3')
+    audio.volume = volume.value
     audio.addEventListener('ended', () => {
       isPlaying.value = false
       hasEnded.value = true
@@ -81,11 +83,21 @@ export const useBackgroundMusic = () => {
     }
   }
 
+  const setVolume = (val: number) => {
+    const newVol = Math.max(0, Math.min(1, val))
+    volume.value = newVol
+    if (audio) {
+      audio.volume = newVol
+    }
+  }
+
   return {
     isPlaying,
     hasEnded,
+    volume,
     play,
     pause,
-    toggle
+    toggle,
+    setVolume
   }
 }

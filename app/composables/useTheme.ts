@@ -5,7 +5,7 @@ const STORAGE_KEY = 'wedding_theme'
 
 export const useTheme = () => {
   const mode = useState<ThemeMode>('theme-mode', () => 'system')
-  const resolved = useState<ResolvedTheme>('theme-resolved', () => 'dark')
+  const resolved = useState<ResolvedTheme>('theme-resolved', () => 'light')
 
   const apply = (next: ResolvedTheme) => {
     if (!import.meta.client) return
@@ -15,8 +15,8 @@ export const useTheme = () => {
 
   const resolve = (m: ThemeMode): ResolvedTheme => {
     if (m !== 'system') return m
-    if (typeof window === 'undefined' || !window.matchMedia) return 'dark'
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+    if (typeof window === 'undefined' || !window.matchMedia) return 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
   const setMode = (m: ThemeMode) => {
@@ -41,7 +41,7 @@ export const useTheme = () => {
     mode.value = stored
     apply(resolve(stored))
 
-    const mq = window.matchMedia('(prefers-color-scheme: light)')
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
     const onChange = () => {
       if (mode.value === 'system') apply(resolve('system'))
     }
