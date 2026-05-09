@@ -228,7 +228,7 @@
           </p>
         </div>
 
-        <div class="mt-10 flex justify-center">
+        <div class="mt-10 flex flex-col items-center gap-6">
           <button
             type="button"
             class="group inline-flex items-center gap-3 px-8 py-3 rounded-full text-sm md:text-base tracking-[0.2em] uppercase font-sans cursor-pointer transition-all duration-300"
@@ -241,6 +241,14 @@
             Entrar
             <Icon name="lucide:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
+
+          <p 
+            class="text-xs md:text-sm opacity-60 font-sans flex items-center gap-2 text-center max-w-xs mx-auto" 
+            :style="{ color: 'var(--c-text)' }"
+          >
+            <Icon name="lucide:headphones" class="w-4 h-4 shrink-0" />
+            Aconsejamos usar auriculares o ajustar el volumen del audio antes de continuar.
+          </p>
         </div>
       </article>
     </div>
