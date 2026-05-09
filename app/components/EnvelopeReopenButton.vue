@@ -10,7 +10,7 @@
         @click="envelope.reopen"
       >
         <Icon name="lucide:mail-open" class="w-4 h-4 text-wedding-accent" />
-        <span class="font-serif italic text-sm text-wedding-accent hidden sm:inline">Ver invitación</span>
+        <span class="font-sans text-sm text-wedding-accent hidden sm:inline">Ver invitación</span>
       </button>
     </Transition>
   </ClientOnly>
