@@ -175,7 +175,7 @@
           class="font-serif italic text-md"
           :style="{ color: 'var(--c-secondary)' }"
         >
-          Invitación para
+          Para:
         </p>
         <p
           class="font-serif tracking-wide text-2xl"
