@@ -1,7 +1,7 @@
 <template>
   <section 
     ref="heroSection"
-    class="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
+    class="relative min-h-dvh flex flex-col items-center justify-center px-4 overflow-hidden"
   >
     <!-- Background layers -->
      <div ref="heroImage" class="opacity-0 fixed top-0 z-1 w-full h-auto">
@@ -41,7 +41,7 @@
       <span class="w-full md:w-fit leading-9">Paco</span>
       </h1>
       
-      <div ref="elPhoto" class="aspect-[4/3] size-64 md:size-80 rounded-full overflow-hidden mt-4 md:mt-8 opacity-0">
+      <div ref="elPhoto" class="aspect-[4/3] size-48 md:size-80 rounded-full overflow-hidden mt-4 md:mt-8 opacity-0">
         <NuxtImg 
           src="/images/evento.jpeg" 
           alt="Wedding Background" 
@@ -111,7 +111,7 @@
       </div>
       
       <!-- CTA -->
-      <div ref="elButton" class="opacity-0">
+      <div ref="elButton" class="opacity-0 hidden md:block">
         <a
           v-if="guest && !alreadySubmitted"
           href="#rsvp"
@@ -123,6 +123,15 @@
         <p v-if="alreadySubmitted" class="flex items-center gap-2 text-2xl">
           <Icon name="lucide:badge-check" class="text-green-600 text-2xl"></Icon>Ya te has registrado. ¡Gracias!
         </p>
+      </div>
+      <!-- Scroll Indicator -->
+      <div 
+        ref="scrollIndicator"
+        class="absolute md:flex bottom-10 mx-auto flex flex-col items-center z-10 opacity-0 animate-bounce cursor-pointer drop-shadow-lg"
+        @click="scrollToHistory"
+      >
+        <span class="text-xs uppercase tracking-widest mb-2 opacity-80">Desliza</span>
+        <Icon name="lucide:chevron-down" class="w-6 h-6" />
       </div>
     </div>
   </section>

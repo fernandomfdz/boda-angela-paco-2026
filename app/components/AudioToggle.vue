@@ -1,6 +1,16 @@
 <template>
   <ClientOnly>
-    <div class="fixed bottom-4 left-4 z-40 flex items-center gap-3">
+    <div class="fixed bottom-4 left-4 z-40 flex flex-col md:flex-row-reverse items-center gap-3">
+            <!-- Ondas de sonido discretas -->
+      <div 
+        class="flex items-end gap-[2px] h-4 opacity-0 transition-opacity duration-300"
+        :class="{ 'opacity-80': music.isPlaying.value }"
+      >
+        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-1" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
+        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-2" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
+        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-3" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
+        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-4" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
+      </div>
       <button
         type="button"
         :aria-label="music.isPlaying.value ? 'Pausar música' : 'Reproducir música'"
@@ -24,17 +34,6 @@
           class="w-5 h-5 text-wedding-accent"
         />
       </button>
-
-      <!-- Ondas de sonido discretas -->
-      <div 
-        class="flex items-end gap-[2px] h-4 opacity-0 transition-opacity duration-300"
-        :class="{ 'opacity-80': music.isPlaying.value }"
-      >
-        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-1" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
-        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-2" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
-        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-3" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
-        <span class="w-[2px] bg-wedding-accent rounded-full animate-wave-4" :style="{ animationPlayState: music.isPlaying.value ? 'running' : 'paused' }"></span>
-      </div>
     </div>
   </ClientOnly>
 </template>

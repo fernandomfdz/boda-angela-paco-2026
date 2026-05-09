@@ -2,24 +2,84 @@ import { ref } from 'vue'
 
 const isPlaying = ref(false)
 const hasEnded = ref(false)
-const volume = ref(0.015)
+const volume = ref(0.025)
 let audio: HTMLAudioElement | null = null
+
+const fixedTracks = ['/intro.mp3']
+// Añade aquí las rutas de las canciones adicionales que sonarán aleatoriamente después de las fijas
+const extraPlaylist: string[] = [
+  '/the-night-we-met.mp3',
+  '/you-belong-with-me.mp3',
+  '/enchanted.mp3',
+  "/halo.mp3"
+]
+
+// Cambia a true para reproducir aleatoriamente todas las canciones (incluyendo las fijas) desde el principio
+const playRandomlyFromStart = true
+
+const allTracks = [...fixedTracks, ...extraPlaylist]
+
+const getRandomTrack = (fromAll = false) => {
+  const pool = fromAll ? allTracks : extraPlaylist
+  if (pool.length === 0) return null
+  return pool[Math.floor(Math.random() * pool.length)]
+}
+
+const getFirstTrack = () => {
+  return playRandomlyFromStart ? getRandomTrack(true) : (fixedTracks[0] || getRandomTrack(false))
+}
+
+let currentTrackIndex = 0
 
 export const useBackgroundMusic = () => {
   if (import.meta.client && !audio) {
-    audio = new Audio('/intro.mp3')
-    audio.volume = volume.value
-    audio.addEventListener('ended', () => {
-      isPlaying.value = false
-      hasEnded.value = true
-    })
-    audio.addEventListener('play', () => {
-      isPlaying.value = true
-      hasEnded.value = false
-    })
-    audio.addEventListener('pause', () => {
-      isPlaying.value = false
-    })
+    const initialTrack = getFirstTrack()
+    if (initialTrack) {
+      audio = new Audio(initialTrack)
+      audio.volume = volume.value
+
+      audio.addEventListener('ended', () => {
+        let nextTrack: string | null = null
+
+        if (playRandomlyFromStart) {
+          nextTrack = getRandomTrack(true)
+        } else {
+          currentTrackIndex++
+          if (currentTrackIndex < fixedTracks.length) {
+            nextTrack = fixedTracks[currentTrackIndex]
+          } else {
+            nextTrack = getRandomTrack(false)
+          }
+        }
+
+        if (nextTrack) {
+          if (audio) {
+            audio.src = nextTrack
+            audio.play().catch(error => {
+              console.warn('Next track play failed:', error)
+              isPlaying.value = false
+            })
+          }
+        } else {
+          isPlaying.value = false
+          hasEnded.value = true
+          currentTrackIndex = 0
+          if (audio) {
+            const restartTrack = getFirstTrack()
+            if (restartTrack) audio.src = restartTrack
+          }
+        }
+      })
+
+      audio.addEventListener('play', () => {
+        isPlaying.value = true
+        hasEnded.value = false
+      })
+
+      audio.addEventListener('pause', () => {
+        isPlaying.value = false
+      })
+    }
 
     window.addEventListener('beforeunload', () => {
       if (audio) {

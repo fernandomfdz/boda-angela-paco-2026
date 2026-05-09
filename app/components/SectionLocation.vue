@@ -4,7 +4,7 @@
       
       <!-- Text details -->
       <div ref="textRef" class="w-full opacity-0 -translate-x-10">
-        <h2 class="text-4xl md:text-6xl font-serif text-wedding-accent mb-12">Dónde y Cuándo</h2>
+        <h2 class="text-4xl md:text-6xl font-serif text-wedding-accent mb-12 text-center">Dónde y Cuándo</h2>
         
         <div class="flex flex-col md:flex-row gap-8 items-start">
           <div class="md:mb-10 pl-6 border-l border-wedding-accent/30">
