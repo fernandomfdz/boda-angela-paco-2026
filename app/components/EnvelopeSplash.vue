@@ -315,11 +315,23 @@ const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
+const music = useBackgroundMusic()
+
+const playSound = () => {
+  try {
+    const audio = new Audio('/letter-open.mp3')
+    audio.play().catch(e => console.warn('Audio play failed:', e))
+  } catch (err) {
+    // Ignore audio errors gracefully
+  }
+}
+
 const open = () => {
   if (stage.value !== 'closed') return
   stage.value = 'opening'
 
   if (prefersReducedMotion()) {
+    playSound()
     gsap.set(letterRef.value, { opacity: 0 })
     stage.value = 'letter'
     gsap.to(letterRef.value, { opacity: 1, duration: 0.3, ease: 'power2.out' })
@@ -337,7 +349,7 @@ const open = () => {
     .fromTo(
       letterRef.value,
       { opacity: 0, y: 70, scale: 0.95 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' },
+      { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out', onStart: playSound },
       '-=0.4',
     )
     .to(envelopeRef.value, { opacity: 0, scale: 0.92, duration: 0.5, ease: 'power2.inOut' }, '-=0.7')

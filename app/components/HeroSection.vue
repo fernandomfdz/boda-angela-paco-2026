@@ -134,12 +134,14 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { Guest } from '~/types/guest'
 import { useEnvelope } from '~/composables/useEnvelope'
+import { useBackgroundMusic } from '~/composables/useBackgroundMusic'
 
 const props = defineProps<{
   guest?: Guest | null
 }>()
 
 const envelope = useEnvelope()
+const music = useBackgroundMusic()
 let unwatchEnvelope: (() => void) | null = null
 
 const heroSection = ref<HTMLElement | null>(null)
@@ -217,11 +219,12 @@ onMounted(() => {
   ctx = gsap.context(() => {
     
     const playAnimation = () => {
+            
       // 1. Initial Load Sequence
       const tl = gsap.timeline()
       
       // Slow sequential fade in
-      tl.to(heroStars.value, { opacity: 1, duration: 1, ease: "power2.inOut" })
+      tl.to(heroStars.value, { opacity: 1, duration: 5, ease: "power2.inOut", onStart: () => { music.pause(); music.play() } })
         .to(heroImage.value, { opacity: 1, duration: 2, ease: "power2.inOut" },"-=1" )
          // Start overlapping
         .to(elNames.value, { opacity: 1, y: 0, duration: 2, ease: "power2.out" })
@@ -253,9 +256,11 @@ onMounted(() => {
   })
 })
 
+
 onUnmounted(() => {
   if (timer) clearInterval(timer)
   if (ctx) ctx.revert()
   if (unwatchEnvelope) unwatchEnvelope()
+  music.pause();
 })
 </script>

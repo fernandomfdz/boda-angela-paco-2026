@@ -2,6 +2,7 @@
   <div class="relative min-h-screen font-sans bg-wedding-dark text-wedding-light overflow-x-hidden">
     <ThemeToggle />
     <EnvelopeReopenButton />
+    <AudioToggle />
     <ClientOnly>
       <EnvelopeSplash v-if="envelope.isOpen.value && guest" :guest="guest" @dismiss="envelope.dismiss" />
     </ClientOnly>
