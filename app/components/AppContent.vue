@@ -8,8 +8,7 @@
       <SectionLocation id="ubicacion" />
       <SectionParty id="fiesta" />
       <SectionPhotos id="fotos" />
-      <SectionPhotoShareWedibox id="comparte-wedibox" />
-      <SectionPhotoShare id="comparte" />
+      <SectionPhotoShare id="compartir-fotos" />
       <SectionRsvp id="rsvp" :guest="guest" />
     </div>
   </main>

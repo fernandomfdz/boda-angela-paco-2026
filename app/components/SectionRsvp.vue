@@ -134,27 +134,6 @@
             <p class="text-xs uppercase tracking-widest opacity-50 mb-6">Invitado {{ index + 1 }}</p>
 
             <div class="grid grid-cols-1 gap-6">
-              <!-- Es niño/a -->
-              <div class="flex flex-row items-center gap-3 mt-1">
-                <div
-                  class="relative flex items-center justify-center w-5 h-5 rounded border cursor-pointer transition-colors"
-                  :style="{
-                    backgroundColor: g.isChild ? 'var(--c-accent)' : 'transparent',
-                    borderColor: g.isChild ? 'var(--c-accent)' : 'var(--c-input-border)',
-                  }"
-                >
-                  <Icon
-                    v-if="g.isChild"
-                    name="lucide:check"
-                    class="w-3.5 h-3.5 absolute pointer-events-none"
-                    :style="{ color: 'var(--c-bg)' }"
-                  />
-                  <input type="checkbox" :id="'child-'+index" v-model="g.isChild" class="absolute opacity-0 w-full h-full cursor-pointer z-10" />
-                </div>
-                <label :for="'child-'+index" class="text-sm tracking-widest uppercase opacity-90 cursor-pointer select-none">
-                  Es niño/a (Menú Infantil)
-                </label>
-              </div>
 
               <!-- Alergias -->
               <div class="form-group flex flex-col gap-2 group">

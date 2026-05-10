@@ -1,8 +1,12 @@
 <template>
-  <div class="relative min-h-screen font-sans bg-wedding-dark text-wedding-light overflow-x-hidden">
-    <ThemeToggle />
-    <EnvelopeReopenButton />
-    <AudioToggle />
+  <div class="relative min-h-screen font-sans bg-wedding-dark text-wedding-light overflow-x-clip">
+    <Transition name="ui-fade">
+      <div v-show="!immersive">
+        <ThemeToggle />
+        <EnvelopeReopenButton />
+        <AudioToggle />
+      </div>
+    </Transition>
     <ClientOnly>
       <EnvelopeSplash v-if="envelope.isOpen.value && guest" :guest="guest" @dismiss="envelope.dismiss" />
     </ClientOnly>
@@ -15,6 +19,7 @@ import { onMounted } from 'vue'
 
 const envelope = useEnvelope()
 const { guest } = useGuest()
+const immersive = useImmersiveMode()
 
 onMounted(() => {
   envelope.checkSession()
@@ -48,3 +53,14 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 </script>
+
+<style>
+.ui-fade-enter-active,
+.ui-fade-leave-active {
+  transition: opacity 400ms ease;
+}
+.ui-fade-enter-from,
+.ui-fade-leave-to {
+  opacity: 0;
+}
+</style>

@@ -28,7 +28,7 @@
             <h3 class="text-2xl font-serif mb-2 text-white">Celebración</h3>
           <p class="text-lg font-light opacity-90 mb-1">Ágora Celebraciones</p>
           <p class="opacity-60 text-sm mb-4">C. Cehegín, 4, 30500 Molina de Segura, Murcia</p>
-          <p class="text-wedding-accent/90 font-medium tracking-widest uppercase text-sm">19:30 hrs</p>
+          <p class="text-wedding-accent/90 font-medium tracking-widest uppercase text-sm">20:30 hrs</p>
           </div>
           
             <!-- Map Graphic / Placeholder -->

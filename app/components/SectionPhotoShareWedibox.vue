@@ -2,12 +2,6 @@
   <section class="py-32 relative" id="comparte-wedibox">
     <div class="max-w-6xl mx-auto px-4 relative z-10">
       <div ref="headerRef" class="text-center mb-12 opacity-0 translate-y-6">
-        <p
-          class="font-sans text-xs tracking-[0.4em] uppercase opacity-60 mb-3"
-          :style="{ color: 'var(--c-secondary)' }"
-        >
-          Opción A · Wedibox
-        </p>
         <h2 class="text-4xl md:text-6xl font-serif text-wedding-accent mb-6">
           Comparte tus fotos
         </h2>

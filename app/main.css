@@ -77,7 +77,10 @@
     background-color: var(--c-bg);
     color: var(--c-text);
     @apply font-sans antialiased;
-    overflow-x: hidden;
+    /* `clip` (not `hidden`) prevents horizontal overflow without turning the
+       element into a scroll container, which would break `position: sticky`
+       descendants (e.g. SectionHistory's scroll-locked experience). */
+    overflow-x: clip;
     scroll-behavior: smooth;
     transition: background-color 400ms ease, color 400ms ease;
   }

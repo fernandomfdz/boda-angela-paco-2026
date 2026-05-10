@@ -9,10 +9,7 @@ const fixedTracks = ['/intro.mp3']
 // Añade aquí las rutas de las canciones adicionales que sonarán aleatoriamente después de las fijas
 const extraPlaylist: string[] = [
   '/the-night-we-met.mp3',
-  '/the-night-we-met.mp3',
-  '/the-night-we-met.mp3',
   '/you-belong-with-me.mp3',
-  '/enchanted.mp3',
   '/enchanted.mp3',
   "/halo.mp3"
 ]

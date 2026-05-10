@@ -23,7 +23,7 @@
             <Icon name="lucide:arrow-down" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
           </a>
           <a
-            href="#comparte-wedibox"
+            href="#compartir-fotos"
             class="glass-light px-8 py-4 rounded-full bg-transparent text-bold text-sm md:text-base border-2 border-transparent tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white/5 hover:border-white/10 group flex items-center gap-3 drop-shadow-2xl opacity-80 hover:opacity-100"
           >
             Compartir Fotos
