@@ -13,6 +13,7 @@ const extraPlaylist: string[] = [
   '/the-night-we-met.mp3',
   '/you-belong-with-me.mp3',
   '/enchanted.mp3',
+  '/enchanted.mp3',
   "/halo.mp3"
 ]
 
