@@ -23,7 +23,7 @@
                 v-for="(scene, i) in scenes"
                 :key="`label-${i}`"
                 :ref="el => { labelRefs[i] = el as HTMLElement }"
-                class="absolute inset-0 text-base md:text-2xl font-serif italic text-wedding-accent/95 truncate"
+                class="absolute inset-0 text-base md:text-2xl font-sans italic text-wedding-accent/95 truncate"
                 style="will-change: opacity;"
               >
                 {{ scene.label }}
@@ -98,11 +98,16 @@
         </div>
       </div>
 
-      <!-- Scroll hint (visible only at the very start) -->
-      <div ref="scrollHint" class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 pointer-events-none">
+      <!-- Scroll hint: persists as a subtle "keep scrolling" cue; only
+           fades out when the very last fragment arrives. -->
+      <button
+        ref="scrollHint"
+        @click="advanceToNextFragment"
+        class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 cursor-pointer hover:opacity-100 transition-opacity"
+      >
         <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase opacity-50">Sigue</span>
         <span class="text-lg opacity-40 animate-bounce">↓</span>
-      </div>
+      </button>
 
     </div>
   </section>
@@ -261,10 +266,14 @@ const collageRefs: (HTMLElement | null)[] = []
 
 // Aspect-ratio + max-height pairs used on mobile to animate the collage
 // frame when a `tall: true` image cycles into focus.
-const MOBILE_FRAME_DEFAULT = { aspectRatio: 0.8, maxHeight: '35vh' } // 5/4 landscape
-const MOBILE_FRAME_TALL = { aspectRatio: 0.8, maxHeight: '45vh' }     // 4/5 portrait
+const MOBILE_FRAME_DEFAULT = { aspectRatio: 0.8, maxHeight: '42vh' } // 5/4 landscape
+const MOBILE_FRAME_TALL = { aspectRatio: 0.8, maxHeight: '55vh' }     // 4/5 portrait
 
 let ctx: gsap.Context | null = null
+
+let masterTl: gsap.core.Timeline | null = null
+let masterSt: ScrollTrigger | null = null
+const fragmentTimes: number[] = []
 
 // Each fragment occupies ~1.4 timeline units (fade in + hold + fade out),
 // each scene-to-scene transition adds ~0.7 units.
@@ -343,6 +352,8 @@ onMounted(() => {
         })
       })
 
+      fragmentTimes.length = 0 // Reset
+
       // — Master timeline (scrubbed by scroll over the whole section) ——
       const tl = gsap.timeline({
         defaults: { ease: 'none', overwrite: 'auto' },
@@ -361,16 +372,17 @@ onMounted(() => {
           onLeaveBack: () => { immersive.value = false },
         },
       })
+      masterTl = tl
+      masterSt = tl.scrollTrigger || null
 
       // Progress bar fills across the whole timeline
       if (progressBar.value) {
         tl.to(progressBar.value, { scaleX: 1, duration: totalUnits }, 0)
       }
 
-      // Scroll hint fades out almost immediately
-      if (scrollHint.value) {
-        tl.to(scrollHint.value, { opacity: 0, duration: 0.4 }, 0)
-      }
+      // Scroll hint stays visible throughout the experience as a continuous
+      // "keep scrolling" cue; it fades out only as the very last fragment
+      // arrives (see below in the fragment loop).
 
       // — Build per-scene segments ———————————————————————————————
       let cursor = 0
@@ -406,6 +418,19 @@ onMounted(() => {
 
           const isFirstOfFirst = sIdx === 0 && fIdx === 0
           const isLastOverall = sIdx === scenes.length - 1 && fIdx === scene.fragments.length - 1
+
+          // As the last overall fragment arrives, fade out the scroll hint —
+          // the user has reached the end of the story.
+          if (isLastOverall && scrollHint.value) {
+            tl.to(scrollHint.value, { opacity: 0, duration: 0.4 }, cursor)
+          }
+
+          // Track the time this fragment becomes fully visible
+          if (isFirstOfFirst) {
+            fragmentTimes.push(0)
+          } else {
+            fragmentTimes.push(cursor + 0.4)
+          }
 
           // Fade in (the very first fragment is already visible)
           if (!isFirstOfFirst) {
@@ -449,6 +474,21 @@ onMounted(() => {
     }, sectionRef.value)
   })
 })
+
+const advanceToNextFragment = () => {
+  if (!masterTl || !masterSt) return
+
+  const currentTime = masterTl.time()
+  // Find the first fragment time that is significantly greater than currentTime
+  // Adding a small buffer (e.g. 0.1) to avoid selecting the current fragment if we are slightly past its start
+  const nextTime = fragmentTimes.find(t => t > currentTime + 0.1)
+
+  if (nextTime !== undefined) {
+    const progress = nextTime / masterTl.duration()
+    const scrollPos = masterSt.start + progress * (masterSt.end - masterSt.start)
+    window.scrollTo({ top: scrollPos, behavior: 'smooth' })
+  }
+}
 
 onUnmounted(() => {
   if (ctx) ctx.revert()
