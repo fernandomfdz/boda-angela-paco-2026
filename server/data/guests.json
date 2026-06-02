@@ -1,29 +1,1223 @@
 {
-  "familia-rodriguez": {
-    "slug": "familia-rodriguez",
-    "displayName": "Familia Rodríguez",
-    "names": ["Juan", "María", "Lucía"],
-    "greeting": "Queridos Juan, María y Lucía",
-    "message": "Os queremos mucho y nos encantaría compartir este día tan especial con vosotros. Vuestra presencia es nuestro mejor regalo.\n\nCon todo el cariño,\nÁngela y Paco",
-    "allowedGuests": 3,
+  "padres-1": {
+    "slug": "padres-1",
+    "displayName": "Mamá y papá",
+    "names": [
+      "Mamá",
+      "Papá"
+    ],
+    "greeting": "Queridos Mamá y papá",
+    "message": "",
+    "allowedGuests": 2,
     "tableNumber": null
   },
-  "los-perez": {
-    "slug": "los-perez",
-    "displayName": "Los Pérez",
-    "names": ["Carlos", "Ana"],
-    "greeting": "Queridos Carlos y Ana",
-    "message": "Sois parte fundamental de nuestra historia y no podemos imaginar este día sin vosotros. Estamos deseando celebrarlo a vuestro lado.\n\nCon mucho cariño,\nÁngela y Paco",
+  "padres-2": {
+    "slug": "padres-2",
+    "displayName": "Mamá y papá",
+    "names": [
+      "Mamá",
+      "Papá"
+    ],
+    "greeting": "Queridos Mamá y papá",
+    "message": "",
     "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "manuel": {
+    "slug": "manuel",
+    "displayName": "Manuel",
+    "names": [
+      "Manuel"
+    ],
+    "greeting": "Querido Manuel",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "laura-y-jose": {
+    "slug": "laura-y-jose",
+    "displayName": "Laura y José",
+    "names": [
+      "Laura",
+      "José"
+    ],
+    "greeting": "Queridos Laura y José",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "ana-y-carlos": {
+    "slug": "ana-y-carlos",
+    "displayName": "Ana y Carlos",
+    "names": [
+      "Ana",
+      "Carlos"
+    ],
+    "greeting": "Queridos Ana y Carlos",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "javier": {
+    "slug": "javier",
+    "displayName": "Javier",
+    "names": [
+      "Javier"
+    ],
+    "greeting": "Querido Javier",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "jesus": {
+    "slug": "jesus",
+    "displayName": "Jesús",
+    "names": [
+      "Jesús"
+    ],
+    "greeting": "Querido Jesús",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "carmen": {
+    "slug": "carmen",
+    "displayName": "Carmen",
+    "names": [
+      "Carmen"
+    ],
+    "greeting": "Querida Carmen",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "alba-y-adrian": {
+    "slug": "alba-y-adrian",
+    "displayName": "Alba y Adrián",
+    "names": [
+      "Alba",
+      "Adrián"
+    ],
+    "greeting": "Queridos Alba y Adrián",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "andrea": {
+    "slug": "andrea",
+    "displayName": "Andrea",
+    "names": [
+      "Andrea"
+    ],
+    "greeting": "Querida Andrea",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "maria-y-antonio": {
+    "slug": "maria-y-antonio",
+    "displayName": "María y Antonio",
+    "names": [
+      "María",
+      "Antonio"
+    ],
+    "greeting": "Queridos María y Antonio",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "pamela": {
+    "slug": "pamela",
+    "displayName": "Pamela",
+    "names": [
+      "Pamela"
+    ],
+    "greeting": "Querida Pamela",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "yolanda": {
+    "slug": "yolanda",
+    "displayName": "Yolanda",
+    "names": [
+      "Yolanda"
+    ],
+    "greeting": "Querida Yolanda",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "gloria-y-pablo": {
+    "slug": "gloria-y-pablo",
+    "displayName": "Gloria y Pablo",
+    "names": [
+      "Gloria",
+      "Pablo"
+    ],
+    "greeting": "Queridos Gloria y Pablo",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "anama-y-quique": {
+    "slug": "anama-y-quique",
+    "displayName": "Anama y Quique",
+    "names": [
+      "Anama",
+      "Quique"
+    ],
+    "greeting": "Queridos Anama y Quique",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "inma-y-juan": {
+    "slug": "inma-y-juan",
+    "displayName": "Inma y Juan",
+    "names": [
+      "Inma",
+      "Juan"
+    ],
+    "greeting": "Queridos Inma y Juan",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "analo-y-paco": {
+    "slug": "analo-y-paco",
+    "displayName": "Analo y Paco",
+    "names": [
+      "Analo",
+      "Paco"
+    ],
+    "greeting": "Queridos Analo y Paco",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "marta-y-antonio": {
+    "slug": "marta-y-antonio",
+    "displayName": "Marta y Antonio",
+    "names": [
+      "Marta",
+      "Antonio"
+    ],
+    "greeting": "Queridos Marta y Antonio",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "maria-y-antonio-2": {
+    "slug": "maria-y-antonio-2",
+    "displayName": "Maria y Antonio",
+    "names": [
+      "Maria",
+      "Antonio"
+    ],
+    "greeting": "Queridos Maria y Antonio",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "adriana-y-jose": {
+    "slug": "adriana-y-jose",
+    "displayName": "Adriana y José",
+    "names": [
+      "Adriana",
+      "José"
+    ],
+    "greeting": "Queridos Adriana y José",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "raquel-y-ana": {
+    "slug": "raquel-y-ana",
+    "displayName": "Raquel y Ana",
+    "names": [
+      "Raquel",
+      "Ana"
+    ],
+    "greeting": "Queridos Raquel y Ana",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "natalia-y-cristian": {
+    "slug": "natalia-y-cristian",
+    "displayName": "Natalia y Cristian",
+    "names": [
+      "Natalia",
+      "Cristian"
+    ],
+    "greeting": "Queridos Natalia y Cristian",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "pepe": {
+    "slug": "pepe",
+    "displayName": "Pepe",
+    "names": [
+      "Pepe"
+    ],
+    "greeting": "Querido Pepe",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "miriam-y-pablo": {
+    "slug": "miriam-y-pablo",
+    "displayName": "Miriam y Pablo",
+    "names": [
+      "Miriam",
+      "Pablo"
+    ],
+    "greeting": "Queridos Miriam y Pablo",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "ruben-y-alicia": {
+    "slug": "ruben-y-alicia",
+    "displayName": "Rubén y Alicia",
+    "names": [
+      "Rubén",
+      "Alicia"
+    ],
+    "greeting": "Queridos Rubén y Alicia",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "gema": {
+    "slug": "gema",
+    "displayName": "Gema",
+    "names": [
+      "Gema"
+    ],
+    "greeting": "Querida Gema",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "maria": {
+    "slug": "maria",
+    "displayName": "María",
+    "names": [
+      "María"
+    ],
+    "greeting": "Querida María",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "stefano": {
+    "slug": "stefano",
+    "displayName": "Stefano",
+    "names": [
+      "Stefano"
+    ],
+    "greeting": "Querido Stefano",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "sofia-y-giovanni-paolo": {
+    "slug": "sofia-y-giovanni-paolo",
+    "displayName": "Sofía y Giovanni Paolo",
+    "names": [
+      "Sofía",
+      "Giovanni Paolo"
+    ],
+    "greeting": "Queridos Sofía y Giovanni Paolo",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "celia": {
+    "slug": "celia",
+    "displayName": "Celia",
+    "names": [
+      "Celia"
+    ],
+    "greeting": "Querida Celia",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "raquel-y-mada": {
+    "slug": "raquel-y-mada",
+    "displayName": "Raquel y Mada",
+    "names": [
+      "Raquel",
+      "Mada"
+    ],
+    "greeting": "Queridos Raquel y Mada",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "lidia-y-antonio": {
+    "slug": "lidia-y-antonio",
+    "displayName": "Lidia y Antonio",
+    "names": [
+      "Lidia",
+      "Antonio"
+    ],
+    "greeting": "Queridos Lidia y Antonio",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "mari-carmen": {
+    "slug": "mari-carmen",
+    "displayName": "Mari Carmen",
+    "names": [
+      "Mari Carmen"
+    ],
+    "greeting": "Querida Mari Carmen",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "almudena": {
+    "slug": "almudena",
+    "displayName": "Almudena",
+    "names": [
+      "Almudena"
+    ],
+    "greeting": "Querida Almudena",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "tito-antonio-y-tita-ascension": {
+    "slug": "tito-antonio-y-tita-ascension",
+    "displayName": "Tito Antonio y Tita Ascensión",
+    "names": [
+      "Tito Antonio",
+      "Tita Ascensión"
+    ],
+    "greeting": "Queridos Tito Antonio y Tita Ascensión",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "madrina-mari-cruz-y-padrino-joaquin": {
+    "slug": "madrina-mari-cruz-y-padrino-joaquin",
+    "displayName": "Madrina Mari Cruz y padrino Joaquín",
+    "names": [
+      "Madrina Mari Cruz",
+      "padrino Joaquín"
+    ],
+    "greeting": "Queridos Madrina Mari Cruz y padrino Joaquín",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "tito-manolo-y-tita-angeles": {
+    "slug": "tito-manolo-y-tita-angeles",
+    "displayName": "Tito Manolo y Tita Ángeles",
+    "names": [
+      "Tito Manolo",
+      "Tita Ángeles"
+    ],
+    "greeting": "Queridos Tito Manolo y Tita Ángeles",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "tito-pepe-y-tita-encarna": {
+    "slug": "tito-pepe-y-tita-encarna",
+    "displayName": "Tito Pepe y Tita Encarna",
+    "names": [
+      "Tito Pepe",
+      "Tita Encarna"
+    ],
+    "greeting": "Queridos Tito Pepe y Tita Encarna",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "tito-salva-y-tita-sofia": {
+    "slug": "tito-salva-y-tita-sofia",
+    "displayName": "Tito Salva y Tita Sofía",
+    "names": [
+      "Tito Salva",
+      "Tita Sofía"
+    ],
+    "greeting": "Queridos Tito Salva y Tita Sofía",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "tito-mimo-y-tita-paqui": {
+    "slug": "tito-mimo-y-tita-paqui",
+    "displayName": "Tito Mimo y Tita Paqui",
+    "names": [
+      "Tito Mimo",
+      "Tita Paqui"
+    ],
+    "greeting": "Queridos Tito Mimo y Tita Paqui",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "toni-y-mariano": {
+    "slug": "toni-y-mariano",
+    "displayName": "Toñi y Mariano",
+    "names": [
+      "Toñi",
+      "Mariano"
+    ],
+    "greeting": "Queridos Toñi y Mariano",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "elena-y-jesus": {
+    "slug": "elena-y-jesus",
+    "displayName": "Elena y Jesús",
+    "names": [
+      "Elena",
+      "Jesús"
+    ],
+    "greeting": "Queridos Elena y Jesús",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "carmen-y-victor": {
+    "slug": "carmen-y-victor",
+    "displayName": "Carmen y Víctor",
+    "names": [
+      "Carmen",
+      "Víctor"
+    ],
+    "greeting": "Queridos Carmen y Víctor",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "raquel-y-fran": {
+    "slug": "raquel-y-fran",
+    "displayName": "Raquel y Fran",
+    "names": [
+      "Raquel",
+      "Fran"
+    ],
+    "greeting": "Queridos Raquel y Fran",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "angel": {
+    "slug": "angel",
+    "displayName": "Ángel",
+    "names": [
+      "Ángel"
+    ],
+    "greeting": "Querido Ángel",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "jaime": {
+    "slug": "jaime",
+    "displayName": "Jaime",
+    "names": [
+      "Jaime"
+    ],
+    "greeting": "Querido Jaime",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "emmanuel": {
+    "slug": "emmanuel",
+    "displayName": "Emmanuel",
+    "names": [
+      "Emmanuel"
+    ],
+    "greeting": "Querido Emmanuel",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "joaquin-y-maria": {
+    "slug": "joaquin-y-maria",
+    "displayName": "Joaquin y María",
+    "names": [
+      "Joaquin",
+      "María"
+    ],
+    "greeting": "Queridos Joaquin y María",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "isaac-y-ana": {
+    "slug": "isaac-y-ana",
+    "displayName": "Isaac y Ana",
+    "names": [
+      "Isaac",
+      "Ana"
+    ],
+    "greeting": "Queridos Isaac y Ana",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "marina-y-xavi": {
+    "slug": "marina-y-xavi",
+    "displayName": "Marina y Xavi",
+    "names": [
+      "Marina",
+      "Xavi"
+    ],
+    "greeting": "Queridos Marina y Xavi",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "elsa-y-victor": {
+    "slug": "elsa-y-victor",
+    "displayName": "Elsa y Víctor",
+    "names": [
+      "Elsa",
+      "Víctor"
+    ],
+    "greeting": "Queridos Elsa y Víctor",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "chicano-yis": {
+    "slug": "chicano-yis",
+    "displayName": "Chicano, Yis",
+    "names": [
+      "Chicano",
+      "Yis"
+    ],
+    "greeting": "Queridos Chicano, Yis",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "raul-y-ana": {
+    "slug": "raul-y-ana",
+    "displayName": "Raúl y Ana",
+    "names": [
+      "Raúl",
+      "Ana"
+    ],
+    "greeting": "Queridos Raúl y Ana",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "luis-y-ana": {
+    "slug": "luis-y-ana",
+    "displayName": "Luis y Ana",
+    "names": [
+      "Luis",
+      "Ana"
+    ],
+    "greeting": "Queridos Luis y Ana",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "pablo": {
+    "slug": "pablo",
+    "displayName": "Pablo",
+    "names": [
+      "Pablo"
+    ],
+    "greeting": "Querido Pablo",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "javier-mateos": {
+    "slug": "javier-mateos",
+    "displayName": "Javier Mateos",
+    "names": [
+      "Javier Mateos"
+    ],
+    "greeting": "Querido Javier Mateos",
+    "message": "",
+    "allowedGuests": 1,
     "tableNumber": null
   },
   "fernando-y-cristina": {
     "slug": "fernando-y-cristina",
     "displayName": "Fernando y Cristina",
-    "names": ["Fernando", "Cristina"],
+    "names": [
+      "Fernando",
+      "Cristina"
+    ],
     "greeting": "Queridos Fernando y Cristina",
-    "message": "Nos hace muchísima ilusión que compartáis con nosotros este día tan especial. ¡Será una fiesta inolvidable y queremos que estéis ahí para celebrarlo!\n\nUn abrazo enorme,\nÁngela y Paco",
+    "message": "",
     "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "fernando-y-luisa": {
+    "slug": "fernando-y-luisa",
+    "displayName": "Fernando y Luisa",
+    "names": [
+      "Fernando",
+      "Luisa"
+    ],
+    "greeting": "Queridos Fernando y Luisa",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "daniel-e-irene": {
+    "slug": "daniel-e-irene",
+    "displayName": "Daniel e Irene",
+    "names": [
+      "Daniel",
+      "Irene"
+    ],
+    "greeting": "Queridos Daniel e Irene",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "aldrin": {
+    "slug": "aldrin",
+    "displayName": "Aldrin",
+    "names": [
+      "Aldrin"
+    ],
+    "greeting": "Querido Aldrin",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "reme-y-pedro": {
+    "slug": "reme-y-pedro",
+    "displayName": "Reme y Pedro",
+    "names": [
+      "Reme",
+      "Pedro"
+    ],
+    "greeting": "Queridos Reme y Pedro",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "teresa-y-pascual": {
+    "slug": "teresa-y-pascual",
+    "displayName": "Teresa y Pascual",
+    "names": [
+      "Teresa",
+      "Pascual"
+    ],
+    "greeting": "Queridos Teresa y Pascual",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "miguel-y-salva": {
+    "slug": "miguel-y-salva",
+    "displayName": "Miguel y Salva",
+    "names": [
+      "Miguel",
+      "Salva"
+    ],
+    "greeting": "Queridos Miguel y Salva",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "jesus-y-montse": {
+    "slug": "jesus-y-montse",
+    "displayName": "Jesús y Montse",
+    "names": [
+      "Jesús",
+      "Montse"
+    ],
+    "greeting": "Queridos Jesús y Montse",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "fernando-y-eva": {
+    "slug": "fernando-y-eva",
+    "displayName": "Fernando y Eva",
+    "names": [
+      "Fernando",
+      "Eva"
+    ],
+    "greeting": "Queridos Fernando y Eva",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "maria-dolores-y-juan-luis": {
+    "slug": "maria-dolores-y-juan-luis",
+    "displayName": "María Dolores y Juan Luis",
+    "names": [
+      "María Dolores",
+      "Juan Luis"
+    ],
+    "greeting": "Queridos María Dolores y Juan Luis",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "maria-carmen-morales": {
+    "slug": "maria-carmen-morales",
+    "displayName": "María Carmen Morales",
+    "names": [
+      "María Carmen Morales"
+    ],
+    "greeting": "Querida María Carmen Morales",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "pepe-y-adelina": {
+    "slug": "pepe-y-adelina",
+    "displayName": "Pepe y Adelina",
+    "names": [
+      "Pepe",
+      "Adelina"
+    ],
+    "greeting": "Queridos Pepe y Adelina",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "inma-y-javi": {
+    "slug": "inma-y-javi",
+    "displayName": "Inma y Javi",
+    "names": [
+      "Inma",
+      "Javi"
+    ],
+    "greeting": "Queridos Inma y Javi",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "joaquin-y-ana": {
+    "slug": "joaquin-y-ana",
+    "displayName": "Joaquín y Ana",
+    "names": [
+      "Joaquín",
+      "Ana"
+    ],
+    "greeting": "Queridos Joaquín y Ana",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "irene": {
+    "slug": "irene",
+    "displayName": "Irene",
+    "names": [
+      "Irene"
+    ],
+    "greeting": "Querida Irene",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "prima-maria-jose": {
+    "slug": "prima-maria-jose",
+    "displayName": "Prima María José",
+    "names": [
+      "Prima María José"
+    ],
+    "greeting": "Querida Prima María José",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "maria-jose-hija": {
+    "slug": "maria-jose-hija",
+    "displayName": "María José hija",
+    "names": [
+      "María José hija"
+    ],
+    "greeting": "Querida María José hija",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "tita-alfonsa": {
+    "slug": "tita-alfonsa",
+    "displayName": "Tita Alfonsa",
+    "names": [
+      "Tita Alfonsa"
+    ],
+    "greeting": "Querida Tita Alfonsa",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "tita-antonia": {
+    "slug": "tita-antonia",
+    "displayName": "Tita Antonia",
+    "names": [
+      "Tita Antonia"
+    ],
+    "greeting": "Querida Tita Antonia",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "madrina-catalina-y-pepe": {
+    "slug": "madrina-catalina-y-pepe",
+    "displayName": "Madrina Catalina y Pepe",
+    "names": [
+      "Madrina Catalina",
+      "Pepe"
+    ],
+    "greeting": "Queridos Madrina Catalina y Pepe",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "noelia-y-juanjo": {
+    "slug": "noelia-y-juanjo",
+    "displayName": "Noelia y Juanjo",
+    "names": [
+      "Noelia",
+      "Juanjo"
+    ],
+    "greeting": "Queridos Noelia y Juanjo",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "cari-y-damian": {
+    "slug": "cari-y-damian",
+    "displayName": "Cari y Damián",
+    "names": [
+      "Cari",
+      "Damián"
+    ],
+    "greeting": "Queridos Cari y Damián",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "juanvi-e-irene": {
+    "slug": "juanvi-e-irene",
+    "displayName": "Juanvi e Irene",
+    "names": [
+      "Juanvi",
+      "Irene"
+    ],
+    "greeting": "Queridos Juanvi e Irene",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "ruben-y-tania": {
+    "slug": "ruben-y-tania",
+    "displayName": "Rubén y Tania",
+    "names": [
+      "Rubén",
+      "Tania"
+    ],
+    "greeting": "Queridos Rubén y Tania",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "berto-martinez": {
+    "slug": "berto-martinez",
+    "displayName": "Berto Martínez",
+    "names": [
+      "Berto Martínez"
+    ],
+    "greeting": "Querido Berto Martínez",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "dioni": {
+    "slug": "dioni",
+    "displayName": "Dioni",
+    "names": [
+      "Dioni"
+    ],
+    "greeting": "Querido Dioni",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "ruben-bartolome": {
+    "slug": "ruben-bartolome",
+    "displayName": "Rubén Bartolomé",
+    "names": [
+      "Rubén Bartolomé"
+    ],
+    "greeting": "Querido Rubén Bartolomé",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "antonio-gomariz": {
+    "slug": "antonio-gomariz",
+    "displayName": "Antonio Gomariz",
+    "names": [
+      "Antonio Gomariz"
+    ],
+    "greeting": "Querido Antonio Gomariz",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "fernando-perals": {
+    "slug": "fernando-perals",
+    "displayName": "Fernando Perals",
+    "names": [
+      "Fernando Perals"
+    ],
+    "greeting": "Querido Fernando Perals",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "jose-antonio-vera": {
+    "slug": "jose-antonio-vera",
+    "displayName": "José Antonio Vera",
+    "names": [
+      "José Antonio Vera"
+    ],
+    "greeting": "Querido José Antonio Vera",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "fernando-vera": {
+    "slug": "fernando-vera",
+    "displayName": "Fernando Vera",
+    "names": [
+      "Fernando Vera"
+    ],
+    "greeting": "Querido Fernando Vera",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "zeta-guillen": {
+    "slug": "zeta-guillen",
+    "displayName": "Zeta Guillén",
+    "names": [
+      "Zeta Guillén"
+    ],
+    "greeting": "Querido Zeta Guillén",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "angela-moreno": {
+    "slug": "angela-moreno",
+    "displayName": "Ángela Moreno",
+    "names": [
+      "Ángela Moreno"
+    ],
+    "greeting": "Querida Ángela Moreno",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "juan-pedro-hurtado-y-ana": {
+    "slug": "juan-pedro-hurtado-y-ana",
+    "displayName": "Juan Pedro Hurtado y Ana",
+    "names": [
+      "Juan Pedro Hurtado",
+      "Ana"
+    ],
+    "greeting": "Queridos Juan Pedro Hurtado y Ana",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "jose-francisco-galiano": {
+    "slug": "jose-francisco-galiano",
+    "displayName": "José Francisco Galiano",
+    "names": [
+      "José Francisco Galiano"
+    ],
+    "greeting": "Querido José Francisco Galiano",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "alfonso-asensio": {
+    "slug": "alfonso-asensio",
+    "displayName": "Alfonso Asensio",
+    "names": [
+      "Alfonso Asensio"
+    ],
+    "greeting": "Querido Alfonso Asensio",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "salva-castineyiras": {
+    "slug": "salva-castineyiras",
+    "displayName": "Salva Castiñeyiras",
+    "names": [
+      "Salva Castiñeyiras"
+    ],
+    "greeting": "Querido Salva Castiñeyiras",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "tita-petronila-y-tito-juanjo": {
+    "slug": "tita-petronila-y-tito-juanjo",
+    "displayName": "Tita Petronila y tito Juanjo",
+    "names": [
+      "Tita Petronila",
+      "tito Juanjo"
+    ],
+    "greeting": "Queridos Tita Petronila y tito Juanjo",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "jesus-pelli-y-candelas": {
+    "slug": "jesus-pelli-y-candelas",
+    "displayName": "Jesús Pelli y Candelas",
+    "names": [
+      "Jesús Pelli",
+      "Candelas"
+    ],
+    "greeting": "Queridos Jesús Pelli y Candelas",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "prima-espe-y-domi": {
+    "slug": "prima-espe-y-domi",
+    "displayName": "Prima Espe y Domi",
+    "names": [
+      "Prima Espe",
+      "Domi"
+    ],
+    "greeting": "Queridos Prima Espe y Domi",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "prima-paqui-y-pascual": {
+    "slug": "prima-paqui-y-pascual",
+    "displayName": "Prima Paqui y Pascual",
+    "names": [
+      "Prima Paqui",
+      "Pascual"
+    ],
+    "greeting": "Queridos Prima Paqui y Pascual",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "prima-bibi-y-alvaro": {
+    "slug": "prima-bibi-y-alvaro",
+    "displayName": "Prima Bibi y Álvaro",
+    "names": [
+      "Prima Bibi",
+      "Álvaro"
+    ],
+    "greeting": "Queridos Prima Bibi y Álvaro",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "prima-jose-y-pepe": {
+    "slug": "prima-jose-y-pepe",
+    "displayName": "prima José y Pepe",
+    "names": [
+      "prima José",
+      "Pepe"
+    ],
+    "greeting": "Queridos prima José y Pepe",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "prima-encarna-y-domingo": {
+    "slug": "prima-encarna-y-domingo",
+    "displayName": "Prima Encarna y Domingo",
+    "names": [
+      "Prima Encarna",
+      "Domingo"
+    ],
+    "greeting": "Queridos Prima Encarna y Domingo",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "chacha-esperanza": {
+    "slug": "chacha-esperanza",
+    "displayName": "Chacha Esperanza",
+    "names": [
+      "Chacha Esperanza"
+    ],
+    "greeting": "Querida Chacha Esperanza",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "prima-cati": {
+    "slug": "prima-cati",
+    "displayName": "Prima Cati",
+    "names": [
+      "Prima Cati"
+    ],
+    "greeting": "Querida Prima Cati",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "primo-diego-y-luisa": {
+    "slug": "primo-diego-y-luisa",
+    "displayName": "Primo Diego y Luisa",
+    "names": [
+      "Primo Diego",
+      "Luisa"
+    ],
+    "greeting": "Queridos Primo Diego y Luisa",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "carmen-paco-encarna-mari-y-trini": {
+    "slug": "carmen-paco-encarna-mari-y-trini",
+    "displayName": "Carmén, Paco, Encarna Mari y Trini",
+    "names": [
+      "Carmén",
+      "Paco",
+      "Encarna Mari",
+      "Trini"
+    ],
+    "greeting": "Queridos Carmén, Paco, Encarna Mari y Trini",
+    "message": "",
+    "allowedGuests": 4,
+    "tableNumber": null
+  },
+  "chacho-antonio": {
+    "slug": "chacho-antonio",
+    "displayName": "Chacho Antonio",
+    "names": [
+      "Chacho Antonio"
+    ],
+    "greeting": "Querido Chacho Antonio",
+    "message": "",
+    "allowedGuests": 1,
     "tableNumber": null
   }
 }

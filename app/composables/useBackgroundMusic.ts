@@ -8,10 +8,8 @@ let audio: HTMLAudioElement | null = null
 const fixedTracks = ['/intro.mp3']
 // Añade aquí las rutas de las canciones adicionales que sonarán aleatoriamente después de las fijas
 const extraPlaylist: string[] = [
-  '/the-night-we-met.mp3',
-  '/you-belong-with-me.mp3',
-  '/enchanted.mp3',
-  "/halo.mp3"
+  "/halo.mp3",
+  "/intro.mp3"
 ]
 
 // Cambia a true para reproducir aleatoriamente todas las canciones (incluyendo las fijas) desde el principio
@@ -87,6 +85,27 @@ export const useBackgroundMusic = () => {
       }
     })
 
+    let wasPlayingBeforeHidden = false
+    document.addEventListener('visibilitychange', () => {
+      if (!audio) return
+      if (document.visibilityState === 'hidden') {
+        if (!audio.paused) {
+          wasPlayingBeforeHidden = true
+          audio.pause()
+        }
+      } else if (wasPlayingBeforeHidden) {
+        wasPlayingBeforeHidden = false
+        audio.play().catch(() => {})
+      }
+    })
+
+    window.addEventListener('pagehide', () => {
+      if (audio && !audio.paused) {
+        wasPlayingBeforeHidden = true
+        audio.pause()
+      }
+    })
+
     if (import.meta.hot) {
       import.meta.hot.dispose(() => {
         if (audio) {
@@ -107,17 +126,17 @@ export const useBackgroundMusic = () => {
         console.warn('Music play failed (posiblemente por políticas de Autoplay):', error)
         if (!isWaitingForInteraction) {
           isWaitingForInteraction = true
-          
+
           const startOnInteraction = () => {
             if (audio) {
-              audio.play().catch(() => {})
+              audio.play().catch(() => { })
             }
             isWaitingForInteraction = false
             document.removeEventListener('click', startOnInteraction)
             document.removeEventListener('touchstart', startOnInteraction)
             document.removeEventListener('keydown', startOnInteraction)
           }
-          
+
           document.addEventListener('click', startOnInteraction, { passive: true })
           document.addEventListener('touchstart', startOnInteraction, { passive: true })
           document.addEventListener('keydown', startOnInteraction, { passive: true })

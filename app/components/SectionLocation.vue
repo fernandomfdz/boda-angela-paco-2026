@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-16 items-center">
       
       <!-- Text details -->
-      <div ref="textRef" class="w-full opacity-0 -translate-x-10">
+      <div ref="textRef" class="w-full opacity-0 translate-y-10">
         <h2 class="text-4xl md:text-6xl font-serif text-wedding-accent mb-12 text-center">Dónde y Cuándo</h2>
         
         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -59,16 +59,15 @@ onMounted(() => {
   
   ctx = gsap.context(() => {
     if (textRef.value) {
-      gsap.to([textRef.value], {
-        x: 0,
+      gsap.to(textRef.value, {
+        y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.2,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: textRef.value,
-          start: 'top 80%',
-        }
+          start: 'top 85%',
+        },
       })
     }
   })

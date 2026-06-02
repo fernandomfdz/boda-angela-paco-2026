@@ -1,7 +1,7 @@
 <template>
   <section class="py-32 relative" id="comparte">
     <div class="max-w-6xl mx-auto px-4 relative z-10">
-      <div ref="headerRef" class="text-center mb-12 opacity-0 translate-y-6">
+      <div ref="headerRef" class="text-center mb-12 opacity-0 translate-y-10">
         <h2 class="text-4xl md:text-6xl font-serif text-wedding-accent mb-6">
           Comparte tus fotos
         </h2>
@@ -14,7 +14,7 @@
       <!-- Iframe embebido -->
       <div
         ref="frameRef"
-        class="glass-dark rounded-2xl overflow-hidden mb-10 max-w-4xl mx-auto opacity-0 translate-y-8"
+        class="glass-dark rounded-2xl overflow-hidden mb-10 max-w-4xl mx-auto opacity-0 translate-y-10"
         style="border: 1px solid var(--c-border); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);"
       >
         <div v-if="!frameLoaded" class="w-full flex items-center justify-center" style="height: 200px; background: var(--c-glass-bg);">
@@ -33,7 +33,7 @@
       </div>
 
       <!-- CTA + QR -->
-      <div ref="ctaRef" class="flex flex-col md:flex-row gap-10 md:gap-16 items-center justify-center max-w-4xl mx-auto opacity-0 translate-y-8">
+      <div ref="ctaRef" class="flex flex-col md:flex-row gap-10 md:gap-16 items-center justify-center max-w-4xl mx-auto opacity-0 translate-y-10">
         <a
           :href="dotsUrl"
           target="_blank"
@@ -96,11 +96,11 @@ onMounted(() => {
       opacity: 1,
       y: 0,
       duration: 1,
-      stagger: 0.18,
+      stagger: 0.15,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: headerRef.value,
-        start: 'top 80%',
+        start: 'top 85%',
       },
     })
   })

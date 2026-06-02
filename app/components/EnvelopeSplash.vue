@@ -53,7 +53,7 @@
         <button
           ref="sealRef"
           type="button"
-          class="seal-btn pointer-events-auto w-16 h-16 md:w-36 md:h-36 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--c-accent)] rounded-full"
+          class="seal-btn pointer-events-auto w-20 h-20 md:w-36 md:h-36 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--c-accent)] rounded-full"
           style="aspect-ratio: 1 / 1; flex-shrink: 0; background: transparent; border: 0; padding: 0;"
           :disabled="stage !== 'closed'"
           :aria-label="`Abrir invitación para ${recipientName}`"
@@ -190,35 +190,36 @@
     <div
       v-show="stage === 'opening' || stage === 'letter'"
       ref="letterRef"
-      class="absolute inset-0 flex items-center justify-center p-4 md:p-10 pointer-events-none"
+      class="absolute inset-0 overflow-y-auto overscroll-contain pointer-events-none"
     >
-      <article
-        class="relative w-full max-w-xl rounded-lg shadow-2xl px-6 py-10 md:px-12 md:py-14 pointer-events-auto"
-        :style="{
-          backgroundColor: 'var(--c-surface)',
-          border: '1px solid var(--c-border)',
-        }"
-      >
+      <div class="min-h-full flex items-center justify-center p-4 md:p-10">
+        <article
+          class="relative w-full max-w-xl rounded-lg shadow-2xl px-5 py-8 md:px-12 md:py-12 pointer-events-auto"
+          :style="{
+            backgroundColor: 'var(--c-surface)',
+            border: '1px solid var(--c-border)',
+          }"
+        >
         <div
           class="absolute inset-x-0 -top-px mx-auto h-px opacity-60"
           style="background: linear-gradient(to right, transparent, var(--c-accent), transparent);"
         ></div>
 
         <p
-          class="font-serif italic text-center text-sm md:text-base tracking-[0.3em] uppercase mb-6"
+          class="font-serif italic text-center text-base md:text-lg tracking-[0.3em] uppercase mb-4"
           :style="{ color: 'var(--c-accent)' }"
         >
           Ángela &amp; Paco
         </p>
 
         <h2
-          class="font-serif text-3xl md:text-4xl text-center mb-8"
+          class="font-serif text-4xl md:text-5xl text-center mb-6"
           :style="{ color: 'var(--c-text)' }"
         >
           {{ greeting }},
         </h2>
 
-        <div class="space-y-5 font-serif text-lg md:text-xl leading-relaxed text-center" :style="{ color: 'var(--c-text)' }">
+        <div class="space-y-4 font-serif text-xl md:text-2xl leading-relaxed text-center" :style="{ color: 'var(--c-text)' }">
           <p
             v-for="(paragraph, idx) in paragraphs"
             :key="idx"
@@ -228,7 +229,7 @@
           </p>
         </div>
 
-        <div class="mt-10 flex flex-col items-center gap-6">
+        <div class="mt-6 md:mt-8 flex flex-col items-center gap-4 md:gap-5">
           <button
             type="button"
             class="group inline-flex items-center gap-3 px-8 py-3 rounded-full text-sm md:text-base tracking-[0.2em] uppercase font-sans cursor-pointer transition-all duration-300"
@@ -250,7 +251,8 @@
             Aconsejamos usar auriculares o ajustar el volumen del audio antes de continuar.
           </p>
         </div>
-      </article>
+        </article>
+      </div>
     </div>
   </div>
 </template>
@@ -303,12 +305,12 @@ const sealPath = (() => {
 
 const recipientName = computed(() => props.guest?.displayName ?? 'nuestros invitados')
 const greeting = computed(() => props.guest?.greeting ?? 'Queridos invitados')
-const fallbackMessage =
-  'Nos casamos el 30 de Septiembre de 2026 y nos haría muchísima ilusión compartir este día tan especial contigo.\n\nCon todo el cariño,\nÁngela y Paco'
-const paragraphs = computed(() => {
-  const raw = props.guest?.message ?? fallbackMessage
-  return raw.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
-})
+const paragraphs = [
+  '¡Nuestro destino estaba escrito!',
+  'Con enorme ilusión, alegría y felicidad, queremos compartir contigo una noticia muy especial ¡nos casamos!',
+  'Os damos la bienvenida a uno de los capítulos más importantes de nuestra vida, un día único, junto con la bendición de Dios, que unirá nuestras vidas para siempre, y que deseamos celebrar rodeados de las personas que más queremos.',
+  '¡¡Te esperamos!!',
+]
 
 let prevBodyOverflow = ''
 const lockScroll = () => {

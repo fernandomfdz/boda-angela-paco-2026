@@ -6,7 +6,7 @@
   >
     <div
       ref="containerRef"
-      class="w-full max-w-3xl mx-auto px-4 relative z-10 glass-dark rounded-[2.5rem] p-8 md:p-12 lg:p-16 opacity-0 translate-y-20"
+      class="w-full max-w-3xl mx-auto px-4 relative z-10 glass-dark rounded-[2.5rem] p-8 md:p-12 lg:p-16 opacity-0 translate-y-10"
     >
 
       <!-- Cabecera personalizada -->
@@ -198,12 +198,6 @@
       </form>
     </div>
   </section>
-
-  <!-- Footer (siempre visible, exista o no la sección RSVP) -->
-  <div class="w-full max-w-3xl text-center mx-auto px-4 relative z-10 rounded-[2.5rem] p-4 mt-12 mb-12">
-    <p>Hecho con <Icon name="lucide:heart" class="w-4 h-4 text-red-500" /> por <a class="text-wedding-accent" target="blank_" href="https://www.instagram.com/fernandomfdz/">@fernandomfdz</a></p>
-    <p>© {{ (new Date()).getFullYear() }}</p>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -296,11 +290,11 @@ onMounted(() => {
       gsap.to(containerRef.value, {
         y: 0,
         opacity: 1,
-        duration: 1.2,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: containerRef.value,
-          start: 'top 90%',
+          start: 'top 85%',
         },
       })
     }

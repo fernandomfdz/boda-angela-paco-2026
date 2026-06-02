@@ -6,28 +6,21 @@
           ¡Hola {{ guest.displayName }}!
         </h2>
         <div class="space-y-6 mb-10 max-w-2xl mx-auto">
-          <p 
-            v-for="(paragraph, index) in greetingMessage" 
+          <p
+            v-for="(paragraph, index) in greetingMessage"
             :key="index"
             class="text-lg md:text-xl font-light opacity-80 leading-relaxed"
           >
             {{ paragraph }}
           </p>
         </div>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <div class="flex justify-center items-center">
           <a
             href="#rsvp"
             class="glass-light px-8 py-4 rounded-full bg-wedding-dark/30 text-bold text-sm md:text-base border-2 border-wedding-accent/30 tracking-[0.2em] uppercase transition-all duration-300 hover:bg-wedding-dark hover:border-wedding-accent group flex items-center gap-3 drop-shadow-2xl"
           >
             Confirmar Asistencia
             <Icon name="lucide:arrow-down" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
-          </a>
-          <a
-            href="#compartir-fotos"
-            class="glass-light px-8 py-4 rounded-full bg-transparent text-bold text-sm md:text-base border-2 border-transparent tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white/5 hover:border-white/10 group flex items-center gap-3 drop-shadow-2xl opacity-80 hover:opacity-100"
-          >
-            Compartir Fotos
-            <Icon name="lucide:camera" class="w-5 h-5 transition-transform group-hover:scale-110" />
           </a>
         </div>
       </div>
@@ -45,26 +38,11 @@ const props = defineProps<{
   guest?: Guest | null
 }>()
 
-const isPlural = computed(() => {
-  if (!props.guest) return false
-  return props.guest.names.length > 1 || props.guest.allowedGuests > 1
-})
-
-const greetingMessage = computed(() => {
-  if (isPlural.value) {
-    return [
-      'Hemos preparado esta web con mucho cariño, en primer lugar, para invitaros formalmente a nuestro gran día.',
-      'Aquí encontraréis un pedacito de nuestra historia y todos los detalles del evento. Queremos atesorar cada instante de ese día para siempre, por eso nos haría muchísima ilusión que uséis esta misma web para compartir con nosotros todas las fotos que saquéis durante la boda.',
-      'Explorad las secciones, ayudadnos a organizarlo todo y, lo más importante: ¡confirmad vuestra asistencia para que podamos pasarlo en grande!'
-    ]
-  } else {
-    return [
-      'Hemos preparado esta web con mucho cariño, en primer lugar, para invitarte formalmente a nuestro gran día.',
-      'Aquí encontrarás un pedacito de nuestra historia y todos los detalles del evento. Queremos atesorar cada instante de ese día para siempre, por eso nos haría muchísima ilusión que uses esta misma web para compartir con nosotros todas las fotos que saques durante la boda.',
-      'Explora las secciones, ayúdanos a organizarlo todo y, lo más importante: ¡confirma tu asistencia para que podamos pasarlo en grande!'
-    ]
-  }
-})
+const greetingMessage = computed(() => [
+  '¡Bienvenidos a la web de nuestra boda!',
+  'Aquí encontraréis un pedacito de nuestra historia y todos los detalles del evento, así como algunas secciones para que puedas compartir fotos con nosotros.',
+  'Tu presencia y cariño es muy especial e importante para nosotros y por eso esperamos poder contar contigo y que nos ayudes a que sea un día inolvidable. ¡Confirma tu asistencia!'
+])
 
 const contentRef = ref<HTMLElement | null>(null)
 let ctx: gsap.Context

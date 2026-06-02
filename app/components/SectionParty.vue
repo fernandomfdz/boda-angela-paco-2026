@@ -11,37 +11,42 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
         
         <!-- Dress Code -->
-        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-2 md:row-span-2 flex flex-col justify-center relative overflow-hidden group">
+        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 md:col-span-1 md:row-span-1 flex flex-col justify-center relative overflow-hidden group">
           <Icon name="lucide:sparkles" class="absolute -right-10 -bottom-10 w-64 h-64 text-wedding-accent/5 group-hover:text-wedding-accent/10 transition-colors duration-700" />
           <h3 class="text-3xl font-serif text-wedding-accent mb-4 relative z-10">Dress Code</h3>
-          <p class="text-xl font-light opacity-90 mb-2 relative z-10">Formal / Cocktail</p>
-          <p class="opacity-70 leading-relaxed text-sm md:text-base relative z-10">Queremos que vengáis guapísimos, pero sobre todo, ¡cómodos para darlo todo en la pista de baile!</p>
+          <p class="opacity-80 leading-relaxed text-sm md:text-base relative z-10">Queremos que vengáis guapísimos, pero sobre todo, ¡cómodos para darlo todo en la pista de baile hasta el amanecer! El único requisito es que traigáis ganas de bailar (el color blanco se lo dejamos en exclusiva a la novia).</p>
         </div>
 
-        <!-- Transporte -->
-        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 flex flex-col justify-center group relative overflow-hidden">
-          <Icon name="lucide:bus" class="w-8 h-8 text-wedding-accent mb-4" />
-          <h3 class="text-xl font-serif mb-2">Transporte</h3>
-          <p class="opacity-70 text-sm">Habrá servicio de autobuses desde Valencia centro (ida y vuelta).</p>
-        </div>
+        <!-- Regalos -->
+        <a href="#regalos" class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 flex flex-col justify-start group relative overflow-hidden hover:bg-wedding-accent/5 transition-colors duration-300">
+          <h3 class="text-3xl font-serif text-wedding-accent mb-4 relative z-10">Regalos</h3>
+          <p class="opacity-80 leading-relaxed text-sm md:text-base relative z-10 mb-3">Vuestra compañía es nuestro mejor regalo, pero si queréis tener un detalle, aquí os dejamos el número de cuenta.</p>
+          <span class="mt-auto text-xs uppercase tracking-widest text-wedding-accent inline-flex items-center gap-2">
+            Ver detalles
+            <Icon name="lucide:arrow-down" class="w-4 h-4 transition-transform group-hover:translate-y-1" />
+          </span>
+        </a>
 
-        <!-- Alojamiento -->
-        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 flex flex-col justify-center group relative overflow-hidden">
-          <Icon name="lucide:hotel" class="w-8 h-8 text-wedding-accent mb-4" />
-          <h3 class="text-xl font-serif mb-2">Alojamiento</h3>
-          <p class="opacity-70 text-sm">Hoteles recomendados en la web con descuento para invitados.</p>
-        </div>
+        <!-- Compartir Fotos -->
+        <a href="#compartir-fotos" class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl p-8 flex flex-col justify-start group relative overflow-hidden hover:bg-wedding-accent/5 transition-colors duration-300">
+          <h3 class="text-3xl font-serif text-wedding-accent mb-4 relative z-10">Compartir Fotos</h3>
+          <p class="opacity-80 leading-relaxed text-sm md:text-base relative z-10 mb-3">Sube las fotos de la boda (ese día o después, ¡pero no te olvides de hacerlo!) y déjanos verlas todas juntas.</p>
+          <span class="mt-auto text-xs uppercase tracking-widest text-wedding-accent inline-flex items-center gap-2">
+            Subir fotos
+            <Icon name="lucide:arrow-down" class="w-4 h-4 transition-transform group-hover:translate-y-1" />
+          </span>
+        </a>
 
         <!-- Playlist -->
-        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl md:col-span-3 flex flex-col items-center justify-between gap-6 group relative overflow-hidden bg-linear-to-r from-wedding-accent/15 to-transparent">
-          <div class="flex flex-col gap-4 items-center p-8">
+        <div class="bento-item opacity-0 translate-y-10 glass-dark rounded-3xl md:col-span-3 flex flex-col items-center justify-between  group relative overflow-hidden bg-linear-to-r from-wedding-accent/15 to-transparent">
+          <div class="flex flex-col gap-10 md:gap-6 items-start p-8">
             <div>
-              <h3 class="text-2xl font-serif mb-2 flex items-center gap-3 hover:text-wedding-accent transition-colors">
-                <Icon name="lucide:music" class="w-6 h-6 text-wedding-accent" /> Playlist Colaborativa
+              <h3 class="text-3xl font-serif mb-2 flex items-center gap-3 text-wedding-accent transition-colors">
+                Playlist Colaborativa
               </h3>
               <p class="opacity-70">Añade esas canciones que no pueden faltar en la fiesta.</p>
             </div>
-            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=PADGy_NKT_2rtTZHGlXKYQ" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300">
+            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=e14df2fb6b0d4e6f&pt=ce6f474fcdc626cc8b2452aaaddf1fb1" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300">
               Añadir Canciones
             </a>
           </div>
@@ -69,7 +74,6 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   
   ctx = gsap.context(() => {
-    // Title animation
     if (titleRef.value) {
       gsap.to(titleRef.value, {
         y: 0,
@@ -79,24 +83,22 @@ onMounted(() => {
         scrollTrigger: {
           trigger: titleRef.value,
           start: 'top 85%',
-        }
+        },
       })
     }
 
-    // Bento grid stagger
     const items = gsap.utils.toArray('.bento-item')
     gsap.to(items, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'back.out(1.2)',
-        scrollTrigger: {
-          trigger: items[0] as HTMLElement,
-          start: 'top 85%',
-        }
-      }
-    )
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.15,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: items[0] as HTMLElement,
+        start: 'top 85%',
+      },
+    })
   })
 })
 

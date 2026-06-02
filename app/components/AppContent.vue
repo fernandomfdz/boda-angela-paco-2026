@@ -4,12 +4,13 @@
 
     <div class="relative z-10 bg-wedding-dark/50 backdrop-blur-sm border-t border-wedding-accent/20">
       <SectionGreeting :guest="guest" />
-      <SectionHistory id="historia" />
       <SectionLocation id="ubicacion" />
       <SectionParty id="fiesta" />
-      <SectionPhotos id="fotos" />
-      <SectionPhotoShare id="compartir-fotos" />
+      <SectionPhotoShareDots id="compartir-fotos" />
       <SectionRsvp id="rsvp" :guest="guest" />
+      <SectionGifts id="regalos" />
+      <SectionHistory id="historia" />
+      <AppFooter />
     </div>
   </main>
 </template>
