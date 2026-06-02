@@ -1,6 +1,34 @@
 <template>
   <main class="min-h-screen bg-wedding-dark text-wedding-light px-4 py-10 md:py-16">
-    <div class="max-w-5xl mx-auto">
+    <!-- Password gate -->
+    <div v-if="!authed" class="max-w-sm mx-auto mt-20">
+      <div class="glass-dark rounded-2xl p-8 text-center">
+        <Icon name="lucide:lock" class="w-10 h-10 text-wedding-accent mx-auto mb-4" />
+        <h1 class="text-2xl font-serif text-wedding-accent mb-2">Acceso restringido</h1>
+        <p class="opacity-70 text-sm mb-6">Esta zona es solo para los novios.</p>
+        <form @submit.prevent="submitPassword" class="flex flex-col gap-4">
+          <input
+            ref="passwordInput"
+            v-model="passwordAttempt"
+            type="password"
+            placeholder="Contraseña"
+            autocomplete="current-password"
+            class="w-full glass-light rounded-full px-5 py-3 outline-none focus:ring-2 focus:ring-wedding-accent/40 text-center"
+            :disabled="authLoading"
+          />
+          <button
+            type="submit"
+            :disabled="authLoading || !passwordAttempt"
+            class="px-6 py-3 rounded-full bg-wedding-accent text-wedding-dark uppercase tracking-widest text-xs font-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {{ authLoading ? 'Comprobando…' : 'Entrar' }}
+          </button>
+          <p v-if="authError" class="text-red-400 text-xs">{{ authError }}</p>
+        </form>
+      </div>
+    </div>
+
+    <div v-else class="max-w-5xl mx-auto">
 
       <header class="text-center mb-10">
         <p class="text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase opacity-50 mb-3">Solo para los novios</p>
@@ -143,7 +171,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, nextTick } from 'vue'
 import type { Guest } from '~/types/guest'
 
 definePageMeta({ layout: false })
@@ -153,7 +181,56 @@ useSeoMeta({
   robots: 'noindex, nofollow',
 })
 
-const { data, pending, error } = await useFetch<Record<string, Guest>>('/api/guests')
+const authed = ref(false)
+const passwordAttempt = ref('')
+const passwordInput = ref<HTMLInputElement | null>(null)
+const authError = ref('')
+const authLoading = ref(false)
+
+const data = ref<Record<string, Guest> | null>(null)
+const pending = ref(false)
+const error = ref<unknown>(null)
+
+const loadGuests = async () => {
+  pending.value = true
+  error.value = null
+  try {
+    data.value = await $fetch<Record<string, Guest>>('/api/guests')
+    authed.value = true
+  } catch (e: unknown) {
+    const status = (e as { statusCode?: number; status?: number })?.statusCode ?? (e as { status?: number })?.status
+    if (status === 401) {
+      authed.value = false
+      await nextTick()
+      passwordInput.value?.focus()
+    } else {
+      error.value = e
+    }
+  } finally {
+    pending.value = false
+  }
+}
+
+const submitPassword = async () => {
+  if (!passwordAttempt.value) return
+  authLoading.value = true
+  authError.value = ''
+  try {
+    await $fetch('/api/auth/enviar', {
+      method: 'POST',
+      body: { password: passwordAttempt.value },
+    })
+    passwordAttempt.value = ''
+    await loadGuests()
+  } catch (e: unknown) {
+    const status = (e as { statusCode?: number; status?: number })?.statusCode ?? (e as { status?: number })?.status
+    authError.value = status === 401 ? 'Contraseña incorrecta' : 'Error al iniciar sesión'
+  } finally {
+    authLoading.value = false
+  }
+}
+
+onMounted(loadGuests)
 
 const search = ref('')
 const copiedSlug = ref<string | null>(null)
