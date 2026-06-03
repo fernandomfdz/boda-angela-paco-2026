@@ -359,16 +359,15 @@
     "allowedGuests": 2,
     "tableNumber": null
   },
-  "lidia-y-antonio": {
-    "slug": "lidia-y-antonio",
-    "displayName": "Lidia y Antonio",
+  "lidia": {
+    "slug": "lidia",
+    "displayName": "Lidia",
     "names": [
-      "Lidia",
-      "Antonio"
+      "Lidia"
     ],
-    "greeting": "Queridos Lidia y Antonio",
+    "greeting": "Querida Lidia",
     "message": "",
-    "allowedGuests": 2,
+    "allowedGuests": 1,
     "tableNumber": null
   },
   "mari-carmen": {
@@ -921,14 +920,14 @@
     "allowedGuests": 2,
     "tableNumber": null
   },
-  "ruben-y-tania": {
-    "slug": "ruben-y-tania",
-    "displayName": "Rubén y Tania",
+  "ruben-y-ainhoa": {
+    "slug": "ruben-y-ainhoa",
+    "displayName": "Rubén y Ainhoa",
     "names": [
       "Rubén",
-      "Tania"
+      "Ainhoa"
     ],
-    "greeting": "Queridos Rubén y Tania",
+    "greeting": "Queridos Rubén y Ainhoa",
     "message": "",
     "allowedGuests": 2,
     "tableNumber": null

@@ -7,9 +7,9 @@
           Vuestra compañía en este día es nuestro mejor regalo, pero si deseáis tener un detalle con nosotros y contribuir a nuestra nueva etapa juntos, ponemos a vuestra disposición este número de cuenta.
         </p>
 
-        <div class="glass-dark rounded-3xl p-8 md:p-10 inline-flex flex-col gap-4 items-center w-full max-w-xl mx-auto">
+        <div class="glass-dark rounded-3xl p-4 md:p-10 inline-flex flex-col gap-4 items-center w-full max-w-xl mx-auto">
           <p class="text-xs md:text-sm uppercase tracking-[0.3em] opacity-60">IBAN</p>
-          <p class="font-sans text-xl md:text-3xl tracking-wide select-all break-all">{{ iban }}</p>
+          <p class="font-sans text-md md:text-3xl tracking-wide select-all break-all">{{ iban }}</p>
           <button
             type="button"
             @click="copyIban"

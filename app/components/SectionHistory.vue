@@ -22,28 +22,29 @@
             <span class="font-sans italic text-wedding-accent/80 text-sm md:text-base">{{ chapter.label }}</span>
           </div>
 
-          <!-- Mobile: interleaved photo / paragraph / photo / paragraph -->
+          <!-- Mobile: all text first, then all photos -->
           <div class="md:hidden flex flex-col gap-6">
-            <template v-for="i in Math.max(chapter.photos.length, chapter.paragraphs.length)" :key="i">
-              <figure
-                v-if="chapter.photos[i - 1]"
-                class="glass-dark rounded-2xl overflow-hidden p-1.5 shadow-2xl cursor-pointer transition-transform active:scale-[0.98] mx-auto w-full max-w-[18rem]"
-                @click="openLightbox(cIdx, i - 1)"
-              >
-                <NuxtImg
-                  :src="chapter.photos[i - 1]"
-                  :alt="`${chapter.label} - foto ${i}`"
-                  class="w-full max-h-[55vh] object-cover rounded-xl block"
-                  loading="lazy"
-                />
-              </figure>
-              <p
-                v-if="chapter.paragraphs[i - 1]"
-                class="text-base leading-relaxed font-light opacity-85 text-center"
-              >
-                {{ chapter.paragraphs[i - 1] }}
-              </p>
-            </template>
+            <p
+              v-for="(paragraph, pIdx) in chapter.paragraphs"
+              :key="`p-${pIdx}`"
+              class="text-base leading-relaxed font-light opacity-85 text-center"
+            >
+              {{ paragraph }}
+            </p>
+            <figure
+              v-for="(src, pIdx) in chapter.photos"
+              v-show="src"
+              :key="`ph-${pIdx}`"
+              class="glass-dark rounded-2xl overflow-hidden p-1.5 shadow-2xl cursor-pointer transition-transform active:scale-[0.98] mx-auto w-full max-w-[18rem]"
+              @click="openLightbox(cIdx, pIdx)"
+            >
+              <NuxtImg
+                :src="src"
+                :alt="`${chapter.label} - foto ${pIdx + 1}`"
+                class="w-full max-h-[55vh] object-cover rounded-xl block"
+                loading="lazy"
+              />
+            </figure>
           </div>
 
           <!-- Desktop: two columns, photos and text alternate sides per chapter -->
@@ -54,6 +55,7 @@
             >
               <figure
                 v-for="(src, pIdx) in chapter.photos"
+                v-show="src"
                 :key="pIdx"
                 class="glass-dark rounded-2xl overflow-hidden p-2 shadow-2xl cursor-pointer transition-transform hover:scale-[1.01]"
                 @click="openLightbox(cIdx, pIdx)"
@@ -105,64 +107,79 @@ interface Chapter {
   photos: string[]
 }
 
-const photo = (n: number) => `/images/historia/${n}.jpeg`
-
-const lastPhoto = () => `/images/story/4/1.jpeg`
-
+// TODO: rellenar las 11 URLs de las fotos. Pueden ser rutas locales
+// (`/images/historia/1.jpeg`) o URLs absolutas a cualquier CDN.
 const chapters: Chapter[] = [
   {
     year: '2017',
     label: 'El comienzo',
     paragraphs: [
-      'Todo comenzó en un lugar inesperado, como suelen empezar las mejores historias. En el año 2017, Ángela inició su etapa profesional en Primafrio, sin imaginar que aquel lugar de trabajo le presentaría a su compañero Paco, el cual llevaría allí unos años trabajando.',
+      'Todo comenzó en un lugar inesperado, como suelen empezar las mejores historias. En el año 2017, Ángela inició su etapa profesional en Primafrio, sin imaginar que aquel lugar de trabajo le presentaría a su compañero Paco, el cual llevaba allí unos años trabajando.',
       'Entre primeros saludos, ordenadores, un entorno cotidiano de trabajo, rutas de transporte, pequeñas conversaciones, y muchas risas, Paco y Ángela, a los años de trabajar allí, se fueron haciendo muy buenos amigos.',
-      'Se iban de vacaciones, se escribían y se contaban muchas cosas, se reían siempre juntos, fue en ese entorno cotidiano pero a la vez, lleno de un destino que aún no conocían.',
+      'Durante las vacaciones, aunque había distancia, se escribían y se mantenía el contacto. Se contaban muchos cosas, se reían siempre juntos y fue en ese entorno cotidiano donde todo comenzó.',
     ],
-    photos: [photo(1), photo(2), photo(3)],
+    photos: [
+      '/images/story/0.jpeg', // foto 1
+      '/images/story/1.jpeg', // foto 2
+      '/images/story/2.jpeg', // foto 3
+    ],
   },
   {
     year: '2021',
     label: 'Octubre · La primera cita',
     paragraphs: [
-      '2021 aquí fue cuando realmente todo empezó. Paco propuso a Ángela ir a Cartagena, y fue allí donde surgió su primera cita.',
-      'Pasaron un día mágico, pero cada uno se volvió a su casa con muchos nervios, sin pensar en aquel entonces, que a partir de ahí podrían empezar algo...',
+      'Pasaron un día mágico, pero cada uno se volvió a su casa con muchos nervios, sin pensar en aquel entonces, que a partir de ahí podría empezar algo...',
     ],
-    photos: [photo(4), photo(5)],
+    photos: [
+      '/images/story/3.jpeg', // foto 4
+      '/images/story/4.jpeg', // foto 5
+    ],
   },
   {
     year: '2021',
     label: '4 de diciembre · Cuando todo empezó',
     paragraphs: [
-      'Ángela quería visitar la torre de la catedral, nunca lo había hecho. Fue allí donde, en su trabajo, Paco la pilló viéndolo y le propuso ir.',
-      'Pasaron un gran día, y fue el día que cambiaría sus vidas. Rodeados de historia y una vista inolvidable, tras esta cita comenzó una relación que día a día ha ido acompañada de ilusión, complicidad y sueños compartidos, y un amor que no ha dejado de crecer.',
+      'Ángela quería visitar la torre de la catedral, ya que nunca lo había hecho. Fue allí donde, en su trabajo, Paco la pilló viendo ese plan y le propuso ir.',
+      'Pasaron un gran día, y fue el día en el en realidad todo se inició. Rodeados de historia y una vista inolvidable, tras esta cita comenzó una relación que día a día ha ido acompañada de ilusión, complicidad y sueños compartidos, y un amor que no ha dejado de crecer.',
       'Desde ese instante, nunca se han separado. Cada día juntos ha sido un capítulo más de una historia que ya estaba escrita con cariño, respeto y una conexión que no ha dejado de crecer nunca.',
-      'Con el tiempo esa conexión se ha hecho más fuerte, hasta que un día se dieron cuenta de que esta historia merecía ser para siempre.',
     ],
-    photos: [photo(6), photo(7), photo(8), photo(9)],
+    photos: [
+      '/images/story/5.jpeg', // foto 6
+      '/images/story/6.jpeg', // foto 7
+      '/images/story/7.jpeg', // foto 8
+    ],
   },
   {
     year: '2025',
     label: 'El sí',
     paragraphs: [
-      'Y un día, en un lugar mágico, justo al inicio de toda esta historia... ese día llegó.',
+      'Con el tiempo esa conexión se ha hecho más fuerte, hasta que un día Paco, en un lugar donde ambos dieron sus primeros pasos ya como pareja, dio el paso definitivo para sellar su amor.',
       'Llegó el sí quiero.',
     ],
-    photos: [photo(10), photo(11), lastPhoto()],
+    photos: [
+      '/images/story/8.jpeg', // foto 9
+      '/images/story/9.jpeg', // foto 10
+      '/images/story/10.jpeg', // foto 11
+    ],
   },
 ]
 
-// Flat list of all photos across chapters, in order, for lightbox navigation.
-const allPhotos = computed(() => chapters.flatMap((c) => c.photos))
-
-// Cumulative offset of each chapter's first photo within `allPhotos`.
-const chapterOffsets = chapters.reduce<number[]>((acc, ch, i) => {
-  acc.push(i === 0 ? 0 : acc[i - 1]! + chapters[i - 1]!.photos.length)
-  return acc
-}, [])
+// Flat list of all NON-EMPTY photos across chapters, in order, for lightbox navigation.
+// Empty strings are skipped so unfilled placeholders don't appear in the carousel.
+const allPhotos = computed(() => chapters.flatMap((c) => c.photos.filter(Boolean)))
 
 const lightboxIndex = ref<number | null>(null)
 const openLightbox = (chapterIdx: number, photoIdx: number) => {
-  lightboxIndex.value = (chapterOffsets[chapterIdx] ?? 0) + photoIdx
+  // Count non-empty photos in previous chapters + non-empty photos before photoIdx in current chapter.
+  let idx = 0
+  for (let c = 0; c < chapterIdx; c++) {
+    idx += chapters[c]!.photos.filter(Boolean).length
+  }
+  const current = chapters[chapterIdx]!.photos
+  for (let p = 0; p < photoIdx; p++) {
+    if (current[p]) idx++
+  }
+  lightboxIndex.value = idx
 }
 
 const headerRef = ref<HTMLElement | null>(null)

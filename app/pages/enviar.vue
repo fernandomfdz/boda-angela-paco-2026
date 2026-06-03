@@ -39,6 +39,50 @@
         </p>
       </header>
 
+      <details class="glass-dark rounded-2xl p-6 md:p-8 mb-8">
+        <summary class="cursor-pointer text-sm uppercase tracking-widest opacity-80 hover:opacity-100 select-none flex items-center gap-2">
+          <Icon name="lucide:message-square-text" class="w-4 h-4" />
+          Plantilla del mensaje
+        </summary>
+
+        <div class="mt-6 flex flex-col gap-6">
+          <p class="text-xs opacity-60">
+            Placeholders disponibles: <code class="text-wedding-accent">{nombre}</code> (displayName del invitado) ·
+            <code class="text-wedding-accent">{url}</code> (enlace personal).
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <label class="flex flex-col gap-2">
+              <span class="text-xs uppercase tracking-widest opacity-60">Mensaje singular (1 invitado)</span>
+              <textarea
+                v-model="templateSingular"
+                rows="9"
+                class="w-full glass-light rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-wedding-accent/40 text-sm font-sans leading-relaxed resize-y"
+              />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-xs uppercase tracking-widest opacity-60">Mensaje plural (2+ invitados)</span>
+              <textarea
+                v-model="templatePlural"
+                rows="9"
+                class="w-full glass-light rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-wedding-accent/40 text-sm font-sans leading-relaxed resize-y"
+              />
+            </label>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-end">
+            <button
+              type="button"
+              class="px-4 py-2 rounded-full text-xs uppercase tracking-widest border border-wedding-accent/30 hover:bg-wedding-accent/10 transition cursor-pointer inline-flex items-center gap-2"
+              @click="resetTemplate"
+            >
+              <Icon name="lucide:rotate-ccw" class="w-4 h-4" />
+              Restablecer plantilla
+            </button>
+          </div>
+        </div>
+      </details>
+
       <div class="sticky top-2 z-10 mb-8 flex flex-col gap-3">
         <input
           v-model="search"
@@ -171,7 +215,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import type { Guest } from '~/types/guest'
 
 definePageMeta({ layout: false })
@@ -317,16 +361,56 @@ const baseUrl = () => {
 
 const guestUrl = (g: Guest) => `${baseUrl()}/${g.slug}`
 
-const whatsappMessage = (g: Guest) => {
-  const verb = g.allowedGuests > 1 ? 'contaros' : 'contarte'
-  return `¡Hola ${g.displayName}!
+const DEFAULT_TEMPLATE_SINGULAR = `¡Hola {nombre}!
 
-Tenemos algo que ${verb}... 👀
+Tenemos algo que contarte... 👀
 
-${guestUrl(g)}
+{url}
 
 Con cariño,
 Ángela y Paco`
+
+const DEFAULT_TEMPLATE_PLURAL = `¡Hola {nombre}!
+
+Tenemos algo que contaros... 👀
+
+{url}
+
+Con cariño,
+Ángela y Paco`
+
+const TEMPLATE_KEY_SINGULAR = 'wedding_whatsapp_template_singular'
+const TEMPLATE_KEY_PLURAL = 'wedding_whatsapp_template_plural'
+
+const templateSingular = ref(DEFAULT_TEMPLATE_SINGULAR)
+const templatePlural = ref(DEFAULT_TEMPLATE_PLURAL)
+
+onMounted(() => {
+  try {
+    templateSingular.value = localStorage.getItem(TEMPLATE_KEY_SINGULAR) || DEFAULT_TEMPLATE_SINGULAR
+    templatePlural.value = localStorage.getItem(TEMPLATE_KEY_PLURAL) || DEFAULT_TEMPLATE_PLURAL
+  } catch {
+    /* noop */
+  }
+})
+
+watch(templateSingular, (val) => {
+  try { localStorage.setItem(TEMPLATE_KEY_SINGULAR, val) } catch { /* noop */ }
+})
+watch(templatePlural, (val) => {
+  try { localStorage.setItem(TEMPLATE_KEY_PLURAL, val) } catch { /* noop */ }
+})
+
+const resetTemplate = () => {
+  templateSingular.value = DEFAULT_TEMPLATE_SINGULAR
+  templatePlural.value = DEFAULT_TEMPLATE_PLURAL
+}
+
+const whatsappMessage = (g: Guest) => {
+  const tpl = g.allowedGuests > 1 ? templatePlural.value : templateSingular.value
+  return tpl
+    .replaceAll('{nombre}', g.displayName)
+    .replaceAll('{url}', guestUrl(g))
 }
 
 const whatsappLink = (g: Guest) => `https://wa.me/?text=${encodeURIComponent(whatsappMessage(g))}`
