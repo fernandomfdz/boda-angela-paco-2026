@@ -14,12 +14,18 @@ try {
   throw createError({ statusCode: 404, message: 'Invitación no encontrada', fatal: true })
 }
 
+const isPlural = (guest.value?.allowedGuests ?? 0) > 1
+
 const personalTitle = guest.value
-  ? `${guest.value.displayName}, queremos que nos acompañes el día de nuestra boda`
+  ? isPlural
+    ? `${guest.value.displayName}, tenemos algo que contaros…`
+    : `${guest.value.displayName}, tenemos algo que contarte…`
   : 'Ángela & Paco · ¡Nos casamos!'
 
 const personalDescription = guest.value
-  ? `${guest.value.displayName}, nos casamos el 30 de Septiembre de 2026. Nos haría muchísima ilusión que compartas con nosotros este día tan especial.`
+  ? isPlural
+    ? `Un sobre con vuestro nombre os está esperando. Abridlo para descubrir lo que hay dentro.`
+    : `Un sobre con tu nombre te está esperando. Ábrelo para descubrir lo que hay dentro.`
   : 'Nos casamos el 30 de Septiembre de 2026. Acompáñanos en este día tan especial.'
 
 useSeoMeta({

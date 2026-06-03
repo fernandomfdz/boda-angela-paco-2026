@@ -167,18 +167,17 @@
       <!-- Texto dentro del sobre — centrado en la mitad inferior, debajo del sello -->
       <div
         ref="addressRef"
-        class="absolute left-0 right-0 text-center px-6 pointer-events-none select-none"
-        style="bottom: 12%;"
+        class="absolute left-0 right-0 text-center px-6 pointer-events-none select-none bottom-[8%] md:bottom-[12%]"
       >
         <p
           id="envelope-title"
-          class="font-serif italic text-md"
+          class="font-serif italic text-lg md:text-xl"
           :style="{ color: 'var(--c-secondary)' }"
         >
           Para:
         </p>
         <p
-          class="font-serif tracking-wide text-2xl"
+          class="font-serif tracking-wide text-lg md:text-2xl"
           :style="{ color: 'var(--c-text)' }"
         >
           {{ recipientName }}
@@ -192,7 +191,7 @@
       ref="letterRef"
       class="absolute inset-0 overflow-y-auto overscroll-contain pointer-events-none"
     >
-      <div class="min-h-full flex items-center justify-center p-4 md:p-10">
+      <div class="min-h-full flex items-center justify-center p-2 md:p-10">
         <article
           class="relative w-full max-w-xl rounded-lg shadow-2xl px-5 py-8 md:px-12 md:py-12 pointer-events-auto"
           :style="{
@@ -206,20 +205,20 @@
         ></div>
 
         <p
-          class="font-serif italic text-center text-base md:text-lg tracking-[0.3em] uppercase mb-4"
+          class="font-serif italic text-center text-base md:text-lg tracking-[0.3em] uppercase mb-1 md:mb-4"
           :style="{ color: 'var(--c-accent)' }"
         >
           Ángela &amp; Paco
         </p>
 
         <h2
-          class="font-serif text-4xl md:text-5xl text-center mb-6"
+          class="font-serif text-2xl md:text-4xl text-center mb-2 md:mb-6"
           :style="{ color: 'var(--c-text)' }"
         >
           {{ greeting }},
         </h2>
 
-        <div class="space-y-4 font-serif text-xl md:text-2xl leading-relaxed text-center" :style="{ color: 'var(--c-text)' }">
+        <div class="space-y-4 font-serif text-lg md:text-2xl leading-relaxed text-center" :style="{ color: 'var(--c-text)' }">
           <p
             v-for="(paragraph, idx) in paragraphs"
             :key="idx"

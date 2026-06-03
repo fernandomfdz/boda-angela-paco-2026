@@ -1,24 +1,24 @@
 {
-  "padres-1": {
+  "padres-del-novio": {
     "slug": "padres-del-novio",
-    "displayName": "Mamá y papá",
+    "displayName": "Mamá y Papá",
     "names": [
-      "Mamá",
-      "Papá"
+      "José (padre del novio)",
+      "María José (madre del novio)"
     ],
-    "greeting": "Queridos Mamá y papá",
+    "greeting": "Queridos Mamá y Papá",
     "message": "",
     "allowedGuests": 2,
     "tableNumber": null
   },
-  "padres-2": {
+  "padres-de-la-novia": {
     "slug": "padres-de-la-novia",
-    "displayName": "Mamá y papá",
+    "displayName": "Mamá y Papá",
     "names": [
-      "Mamá",
-      "Papá"
+      "Bernardino (padre de la novia)",
+      "María Fuensanta (madre de la novia)"
     ],
-    "greeting": "Queridos Mamá y papá",
+    "greeting": "Queridos Mamá y Papá",
     "message": "",
     "allowedGuests": 2,
     "tableNumber": null
@@ -406,12 +406,12 @@
   },
   "madrina-mari-cruz-y-padrino-joaquin": {
     "slug": "madrina-mari-cruz-y-padrino-joaquin",
-    "displayName": "Madrina Mari Cruz y padrino Joaquín",
+    "displayName": "Madrina Mari Cruz y Padrino Joaquín",
     "names": [
       "Madrina Mari Cruz",
-      "padrino Joaquín"
+      "Padrino Joaquín"
     ],
-    "greeting": "Queridos Madrina Mari Cruz y padrino Joaquín",
+    "greeting": "Queridos Madrina Mari Cruz y Padrino Joaquín",
     "message": "",
     "allowedGuests": 2,
     "tableNumber": null
