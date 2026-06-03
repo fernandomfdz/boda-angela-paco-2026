@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     googleScriptUrl: process.env.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwLmHCFhoegdnPaNYJQ5DKGiMweqB8ygwr9dScP3RUj_2g3f37lSjnPrXIofL0XnwLp/exec',
-    enviarPassword: process.env.ENVIAR_PASSWORD || '',
+    adminPassword: process.env.ADMIN_PASSWORD || process.env.ENVIAR_PASSWORD || '',
     public: {
       gallery: readGallery(),
     },

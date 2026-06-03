@@ -220,9 +220,32 @@ import type { Guest } from '~/types/guest'
 
 definePageMeta({ layout: false })
 
+useHead({
+  title: 'Admin · Ángela & Paco',
+  meta: [
+    { name: 'robots', content: 'noindex, nofollow' },
+  ],
+})
+
+// Limpia los meta tags sociales que se heredan de `app/app.vue` para que esta
+// página no exponga ogImage / Twitter card al pegar la URL en chats.
 useSeoMeta({
-  title: 'Compartir invitaciones · Ángela & Paco',
-  robots: 'noindex, nofollow',
+  ogImage: null,
+  ogImageType: null,
+  ogImageWidth: null,
+  ogImageHeight: null,
+  ogTitle: null,
+  ogDescription: null,
+  ogUrl: null,
+  ogSiteName: null,
+  ogType: null,
+  ogLocale: null,
+  twitterCard: null,
+  twitterImage: null,
+  twitterTitle: null,
+  twitterDescription: null,
+  twitterCreator: null,
+  description: null,
 })
 
 const authed = ref(false)
@@ -260,7 +283,7 @@ const submitPassword = async () => {
   authLoading.value = true
   authError.value = ''
   try {
-    await $fetch('/api/auth/enviar', {
+    await $fetch('/api/auth/admin', {
       method: 'POST',
       body: { password: passwordAttempt.value },
     })

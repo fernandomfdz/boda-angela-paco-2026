@@ -1,16 +1,16 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ password?: string }>(event)
   const config = useRuntimeConfig(event)
-  const expected = config.enviarPassword
+  const expected = config.adminPassword
 
   if (!expected) {
-    throw createError({ statusCode: 500, message: 'ENVIAR_PASSWORD no configurado en el servidor' })
+    throw createError({ statusCode: 500, message: 'ADMIN_PASSWORD no configurado en el servidor' })
   }
   if (!body?.password || body.password !== expected) {
     throw createError({ statusCode: 401, message: 'Contraseña incorrecta' })
   }
 
-  setCookie(event, 'enviar_auth', body.password, {
+  setCookie(event, 'admin_auth', body.password, {
     httpOnly: true,
     sameSite: 'lax',
     secure: !import.meta.dev,

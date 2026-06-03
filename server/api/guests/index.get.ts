@@ -5,8 +5,8 @@ const guestMap = guests as Record<string, Guest>
 
 export default defineEventHandler((event) => {
   const config = useRuntimeConfig(event)
-  const expected = config.enviarPassword
-  const cookie = getCookie(event, 'enviar_auth')
+  const expected = config.adminPassword
+  const cookie = getCookie(event, 'admin_auth')
 
   if (!expected || !cookie || cookie !== expected) {
     throw createError({ statusCode: 401, message: 'No autorizado' })
