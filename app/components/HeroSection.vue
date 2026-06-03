@@ -1,7 +1,7 @@
 <template>
   <section 
     ref="heroSection"
-    class="relative min-h-dvh flex flex-col items-center justify-center px-4 overflow-hidden"
+    class="relative min-h-dvh flex flex-col items-center justify-center px-4 overflow-hidden md:pt-24"
   >
     <!-- Background layers -->
      <div ref="heroImage" class="opacity-0 fixed top-0 z-1 w-full h-auto">
