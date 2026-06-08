@@ -9,36 +9,7 @@
       <SectionPhotoShareDots id="compartir-fotos" />
       <SectionRsvp id="rsvp" :guest="guest" />
       <SectionGifts id="regalos" />
-
-      <!-- History toggle (A vs B) -->
-      <div id="historia" class="flex justify-center pt-16 md:pt-24">
-        <div class="inline-flex items-center gap-1 glass-dark rounded-full p-1 text-xs uppercase tracking-widest">
-          <button
-            type="button"
-            class="px-5 py-2 rounded-full transition cursor-pointer"
-            :class="historyVariant === 'A'
-              ? 'bg-wedding-accent text-wedding-dark'
-              : 'opacity-70 hover:opacity-100'"
-            @click="historyVariant = 'A'"
-          >
-            Versión A
-          </button>
-          <button
-            type="button"
-            class="px-5 py-2 rounded-full transition cursor-pointer"
-            :class="historyVariant === 'B'
-              ? 'bg-wedding-accent text-wedding-dark'
-              : 'opacity-70 hover:opacity-100'"
-            @click="historyVariant = 'B'"
-          >
-            Versión B
-          </button>
-        </div>
-      </div>
-
-      <SectionHistoryA v-if="historyVariant === 'A'" />
-      <SectionHistoryB v-else />
-
+      <SectionHistoryB id="historia" />
       <AppFooter />
     </div>
   </main>
@@ -51,6 +22,4 @@ import type { Guest } from '~/types/guest'
 defineProps<{
   guest?: Guest | null
 }>()
-
-const historyVariant = ref<'A' | 'B'>('B')
 </script>

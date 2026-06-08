@@ -1218,5 +1218,28 @@
     "message": "",
     "allowedGuests": 1,
     "tableNumber": null
+  },
+  "daniela-y-miguel": {
+    "slug": "daniela-y-miguel",
+    "displayName": "Daniela y Miguel",
+    "names": [
+      "Daniela",
+      "Miguel"
+    ],
+    "greeting": "Queridos Daniela y Miguel",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "mounia": {
+    "slug": "mounia",
+    "displayName": "Mounia",
+    "names": [
+      "Mounia"
+    ],
+    "greeting": "Querida Mounia",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
   }
 }
