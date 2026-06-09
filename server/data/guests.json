@@ -1065,13 +1065,13 @@
     "allowedGuests": 1,
     "tableNumber": null
   },
-  "salva-castineyiras": {
-    "slug": "salva-castineyiras",
-    "displayName": "Salva Castiñeyiras",
+  "salva-castineyras": {
+    "slug": "salva-castineyras",
+    "displayName": "Salva Castiñeyras",
     "names": [
-      "Salva Castiñeyiras"
+      "Salva Castiñeyras"
     ],
-    "greeting": "Querido Salva Castiñeyiras",
+    "greeting": "Querido Salva",
     "message": "",
     "allowedGuests": 1,
     "tableNumber": null
@@ -1238,6 +1238,17 @@
       "Mounia"
     ],
     "greeting": "Querida Mounia",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
+  },
+  "pruden-lopez": {
+    "slug": "pruden-lopez",
+    "displayName": "Pruden",
+    "names": [
+      "Pruden López"
+    ],
+    "greeting": "Querida Pruden",
     "message": "",
     "allowedGuests": 1,
     "tableNumber": null
