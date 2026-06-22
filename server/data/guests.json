@@ -1252,5 +1252,16 @@
     "message": "",
     "allowedGuests": 1,
     "tableNumber": null
+  },
+  "fermin-noain": {
+    "slug": "fermin-noain",
+    "displayName": "Fermín",
+    "names": [
+      "Fermín Noain"
+    ],
+    "greeting": "Querido Fermín",
+    "message": "",
+    "allowedGuests": 1,
+    "tableNumber": null
   }
 }
