@@ -1263,5 +1263,29 @@
     "message": "",
     "allowedGuests": 1,
     "tableNumber": null
+  },
+  "juan-y-salvadora": {
+    "slug": "juan-y-salvadora",
+    "displayName": "Juan y Salvadora",
+    "names": [
+      "Juan",
+      "Salvadora"
+    ],
+    "greeting": "Queridos Juan y Salvadora",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "israel-y-sandra": {
+    "slug": "israel-y-sandra",
+    "displayName": "Israel y Sandra",
+    "names": [
+      "Israel",
+      "Sandra"
+    ],
+    "greeting": "Queridos Israel y Sandra",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
   }
 }
