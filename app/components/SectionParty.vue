@@ -46,7 +46,7 @@
               </h3>
               <p class="opacity-70">Únete a la playlist y añade todas esas canciones que no pueden faltar en la fiesta.</p>
             </div>
-            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=-m7S43-nTGC7-s4srGZLLA&utm_source=copy-link&pt=a8946b623def7e2a21d4d52dbef6605c&pi=RuLukk-cR0m5c" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300">
+            <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/playlist/4j6WpzfBR821UqSIddbXZc?si=RW8dSvANT8uT2IrcTycmEQ&utm_source=copy-link&pi=Y12K6nInTgiEA&pt=c62b9692e592b119bb768e872b2f1b32" class="shrink-0 px-6 py-3 border border-wedding-accent/30 rounded-full text-sm uppercase tracking-widest hover:bg-wedding-accent hover:text-wedding-dark transition-all duration-300">
               Unirme y añadir canciones
             </a>
           </div>

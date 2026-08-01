@@ -1124,14 +1124,14 @@
     "allowedGuests": 2,
     "tableNumber": null
   },
-  "prima-bibi-y-alvaro": {
-    "slug": "prima-bibi-y-alvaro",
-    "displayName": "Prima Bibi y Álvaro",
+  "prima-bivi-y-alvaro": {
+    "slug": "prima-bivi-y-alvaro",
+    "displayName": "Prima Bivi y Álvaro",
     "names": [
-      "Prima Bibi",
+      "Prima Bivi",
       "Álvaro"
     ],
-    "greeting": "Queridos Prima Bibi y Álvaro",
+    "greeting": "Queridos Prima Bivi y Álvaro",
     "message": "",
     "allowedGuests": 2,
     "tableNumber": null
@@ -1284,6 +1284,18 @@
       "Sandra"
     ],
     "greeting": "Queridos Israel y Sandra",
+    "message": "",
+    "allowedGuests": 2,
+    "tableNumber": null
+  },
+  "sandra-y-victor": {
+    "slug": "sandra-y-victor",
+    "displayName": "Sandra y Víctor",
+    "names": [
+      "Sandra",
+      "Víctor"
+    ],
+    "greeting": "Queridos Sandra y Víctor",
     "message": "",
     "allowedGuests": 2,
     "tableNumber": null
